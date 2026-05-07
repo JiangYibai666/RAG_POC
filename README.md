@@ -1,50 +1,50 @@
-# A2A-AML-POC:基于 A2A 协议的反洗钱多智能体协作系统
+# A2A-AML-POC: Anti-Money Laundering Multi-Agent Collaboration System Based on A2A Protocol
 
 
-## 00 设计方案
+## 00 Solution Design
 
-### 0.1 业务背景
+### 0.1 Business Background
 
-本 POC 基于 LLM 与 RAG 技术,通过**多智能体协作**模式,让具备不同领域能力的 Agent 通过 A2A(Agent-to-Agent)协议互相协商,完成复杂的洗钱模式识别。
+This POC is built on LLM and RAG technologies. Through a **multi-agent collaboration** pattern, agents with different domain capabilities coordinate via the A2A (Agent-to-Agent) protocol to complete complex money-laundering pattern detection.
 
-### 0.2 用例描述
+### 0.2 Use Case Description
 
-**输入**:用户/系统提交的可疑交易记录,例如:
-> "用户 U002 以 $1,000,000 出售 Tesla Model X"
+**Input**: suspicious transaction records submitted by users/systems, for example:
+> "User U002 sold a Tesla Model X for $1,000,000"
 
-**输出**:结构化风险报告,包含:
-- 风险等级(LOW / MEDIUM / HIGH / CRITICAL)
-- 异常类型(价格异常 / 结构化分拆 / 关联交易等)
-- 完整证据链(每一步推理依据 + 调用了哪个 Agent)
-- 建议处置动作(放行 / 冻结 / 上报 SAR)
+**Output**: a structured risk report including:
+- Risk level (LOW / MEDIUM / HIGH / CRITICAL)
+- Anomaly type (price anomaly / structuring / related-party transaction, etc.)
+- Complete evidence chain (reasoning basis for each step + which agent was called)
+- Recommended action (approve / freeze / report SAR)
 
 ---
 
-## 01 技术栈选型
+## 01 Tech Stack Selection
 
-### 1.1 核心依赖
+### 1.1 Core Dependencies
 
-| 类别 | 技术 | 用途 | 选型理由 |
+| Category | Technology | Purpose | Why Chosen |
 |---|---|---|---|
-| **运行时** | Python 3.11+ | 主语言 | LangChain/LangGraph 生态 |
-| **A2A 协议** | `a2a-sdk`(或 FastAPI 自研最小子集) | Agent 间通信 | 官方 SDK,标准化 |
-| **Agent 编排** | `langgraph` | 单 Agent 内部推理图 | 状态机模型契合多步推理 |
-| **LLM 抽象** | `langchain-core` | Tool / Message 抽象 | 与 LangGraph 无缝集成 |
-| **LLM 提供商** | `anthropic`(Claude) | 推理模型 | 对应 PDF 笔记中"用 Claude" |
-| **HTTP 服务** | `fastapi` + `uvicorn` | 每个 Agent 独立 HTTP 服务 | 异步高性能,SSE 原生支持 |
-| **HTTP 客户端** | `httpx` | A2A 调用客户端 | 异步 + SSE 客户端支持 |
-| **持久化** | `sqlite3`(stdlib) | Task / Message 历史 | 零依赖 |
-| **RAG 检索** | `numpy` + Voyage/OpenAI Embedding | 极简向量检索 | POC 期避免向量数据库 |
-| **CLI 美化** | `rich` | 流式可视化展示 | 演示效果加分项 |
-| **配置管理** | `python-dotenv` | 环境变量 | 标准做法 |
-| **数据校验** | `pydantic` v2 | A2A 数据结构 | 类型安全 + JSON 序列化 |
+| **Runtime** | Python 3.11+ | Primary language | LangChain/LangGraph ecosystem |
+| **A2A Protocol** | `a2a-sdk` (or minimal in-house FastAPI subset) | Inter-agent communication | Official SDK, standardized |
+| **Agent Orchestration** | `langgraph` | Intra-agent reasoning graph | State-machine model fits multi-step reasoning |
+| **LLM Abstraction** | `langchain-core` | Tool / Message abstraction | Seamless integration with LangGraph |
+| **LLM Provider** | `anthropic` (Claude) | Reasoning model | Matches the PDF notes: "use Claude" |
+| **HTTP Service** | `fastapi` + `uvicorn` | Independent HTTP service per agent | High-performance async, native SSE support |
+| **HTTP Client** | `httpx` | A2A client calls | Async + SSE client support |
+| **Persistence** | `sqlite3` (stdlib) | Task / Message history | Zero dependency |
+| **RAG Retrieval** | `numpy` + Voyage/OpenAI Embedding | Minimal vector retrieval | Avoid vector DB in POC stage |
+| **CLI UX** | `rich` | Streaming visualization | Improves demo quality |
+| **Config Management** | `python-dotenv` | Environment variables | Standard practice |
+| **Data Validation** | `pydantic` v2 | A2A data structures | Type safety + JSON serialization |
 ---
 
-## 02 智能体角色设计
+## 02 Agent Role Design
 
-本系统包含 **3 个 Agent**,每个 Agent 都是独立的 HTTP 服务,暴露标准 A2A 接口。
+This system includes **3 agents**, each running as an independent HTTP service and exposing standard A2A endpoints.
 
-### 2.1 整体架构图
+### 2.1 Overall Architecture
 
 ```
                     ┌─────────────────────────────┐
@@ -56,9 +56,9 @@
               ┌────────────────────────────────────────┐
               │         HostAgent  (Port 10000)        │
               │  ────────────────────────────────────  │
-              │  • 用户入口 / 意图解析                  │
-              │  • LangGraph: 多轮调查协商             │
-              │  • 综合证据生成最终报告                 │
+              │  • User entry / intent parsing         │
+              │  • LangGraph: multi-round investigation│
+              │  • Final report generation from evidence |
               └─────┬────────────────────────────┬─────┘
                     │ A2A                    A2A │
                     ▼                            ▼
@@ -66,69 +66,69 @@
         │ MarketAgent           │    │ TransactionAgent         │
         │ (Port 10001)          │    │ (Port 10002)             │
         │ ────────────────────  │    │ ────────────────────────│
-        │ • 商品价格知识库      │    │ • 交易流水查询           │
-        │ • RAG 检索            │    │ • 关联账户分析           │
-        │ • 价格异常判定         │    │ • 结构化分拆检测         │
+        │ • Asset pricing KB    │    │ • Transaction lookup     │
+        │ • RAG retrieval       │    │ • Related account analysis |
+        │ • Price anomaly check │    │ • Structuring detection  │
         └───────────────────────┘    └──────────────────────────┘
                     │                            │
                     ▼                            ▼
         ┌──────────────────────┐    ┌──────────────────────────┐
         │ market_knowledge     │    │ transactions.json        │
-        │ + embeddings (numpy) │    │ (mock 交易流水)          │
+        │ + embeddings (numpy) │    │ (mock transaction logs)  │
         └──────────────────────┘    └──────────────────────────┘
 ```
 
-### 2.2 HostAgent — 协调与决策
+### 2.2 HostAgent - Coordination and Decisioning
 
-**端口**:10000
+**Port**: 10000
 
-**职责**:作为用户入口,负责整个调查流程的编排。是唯一直接面向用户的 Agent。
+**Responsibility**: Acts as the user entry point and orchestrates the entire investigation workflow. It is the only agent directly facing the user.
 
-**LangGraph 节点设计**:
+**LangGraph node design**:
 
 ```
 parse_intent ──▶ plan_investigation ──▶ dispatch_to_agent ──▶ evaluate_response
                                               ▲                       │
-                                              │  需要更多证据         │
+                                              │  Need more evidence   │
                                               └───────────────────────┤
-                                                                      │ 证据充分
+                                                                      │ Evidence sufficient
                                                                       ▼
                                                               generate_report ──▶ END
 ```
 
-| 节点 | 职责 |
+| Node | Responsibility |
 |---|---|
-| `parse_intent` | 解析用户输入,提取关键实体(用户ID、商品、金额、时间) |
-| `plan_investigation` | LLM 看 AgentCards,生成初始调查计划 |
-| `dispatch_to_agent` | 通过 `a2a.client` 调用具体 Agent(SSE 流式订阅) |
-| `evaluate_response` | 收到 Agent 答复后判断:够不够? 还需要问谁? |
-| `generate_report` | 综合所有证据,生成结构化风险报告 |
+| `parse_intent` | Parse user input and extract key entities (user ID, asset, amount, time) |
+| `plan_investigation` | LLM reads AgentCards and generates an initial investigation plan |
+| `dispatch_to_agent` | Call specific agents via `a2a.client` (SSE streaming subscription) |
+| `evaluate_response` | After receiving a response, decide: enough evidence? who to ask next? |
+| `generate_report` | Synthesize all evidence into a structured risk report |
 
 
-### 2.3 MarketAgent — 市场情报
+### 2.3 MarketAgent - Market Intelligence
 
-**端口**:10001
+**Port**: 10001
 
-**职责**:基于知识库回答商品/资产的合理价格区间,判断给定交易价格的异常程度。
+**Responsibility**: Uses a knowledge base to return reasonable price ranges for assets and evaluate anomaly severity of the transaction price.
 
 **AgentCard skills**:
 
-| Skill ID | 名称 | 描述 |
+| Skill ID | Name | Description |
 |---|---|---|
-| `price_lookup` | 市场价格查询 | 返回某资产的合理价格区间 |
-| `price_anomaly_check` | 价格异常检测 | 给定资产+成交价,返回偏离 σ 数 |
+| `price_lookup` | Market price query | Return a reasonable price range for an asset |
+| `price_anomaly_check` | Price anomaly detection | Given asset + transaction price, return sigma deviation |
 
-**内部 LangGraph**:
+**Internal LangGraph**:
 
 ```
 receive_query ──▶ rag_retrieve ──▶ llm_analyze ──▶ structure_output ──▶ END
 ```
 
-- `rag_retrieve`:从 `market_knowledge.jsonl` 中检索 Top-K 相关条目(numpy 余弦相似度)
-- `llm_analyze`:LLM 结合检索结果做异常判定
-- `structure_output`:以 `DataPart` 格式返回结构化结果
+- `rag_retrieve`: Retrieve Top-K relevant entries from `market_knowledge.jsonl` (numpy cosine similarity)
+- `llm_analyze`: LLM performs anomaly judgment using retrieved context
+- `structure_output`: Return structured result in `DataPart` format
 
-**输出示例**:
+**Output example**:
 ```json
 {
   "asset": "Tesla Model X 2024",
@@ -141,31 +141,31 @@ receive_query ──▶ rag_retrieve ──▶ llm_analyze ──▶ structure_o
 }
 ```
 
-### 2.4 TransactionAgent — 交易行为分析
+### 2.4 TransactionAgent - Transaction Behavior Analysis
 
-**端口**:10002
+**Port**: 10002
 
-**职责**:基于交易流水,分析用户行为模式、关联账户、结构化分拆等可疑信号。
+**Responsibility**: Analyzes transaction logs for suspicious signals such as behavior patterns, related accounts, and structuring.
 
 **AgentCard skills**:
 
-| Skill ID | 名称 | 描述 |
+| Skill ID | Name | Description |
 |---|---|---|
-| `user_history` | 用户交易历史 | 返回用户近期交易摘要 |
-| `related_party_analysis` | 关联方分析 | 识别可疑的关联账户和交易对手 |
-| `structuring_detection` | 结构化分拆检测 | 检测规避上报阈值的拆分行为 |
+| `user_history` | User transaction history | Return a summary of recent transactions for a user |
+| `related_party_analysis` | Related-party analysis | Identify suspicious related accounts and counterparties |
+| `structuring_detection` | Structuring detection | Detect split transactions used to evade reporting thresholds |
 
-**内部 LangGraph**:
+**Internal LangGraph**:
 
 ```
 receive_query ──▶ classify_intent ──▶ query_db ──▶ pattern_analysis ──▶ structure_output ──▶ END
 ```
 
-- `classify_intent`:判断用户问的是哪种 skill
-- `query_db`:从 `transactions.json` 检索相关交易
-- `pattern_analysis`:LLM + 启发式规则识别异常模式
+- `classify_intent`: Decide which skill is being requested
+- `query_db`: Retrieve related records from `transactions.json`
+- `pattern_analysis`: LLM + heuristic rules identify anomaly patterns
 
-**输出示例**(结构化分拆):
+**Output example** (structuring):
 ```json
 {
   "user_id": "U003",
@@ -180,105 +180,105 @@ receive_query ──▶ classify_intent ──▶ query_db ──▶ pattern_ana
 }
 ```
 
-### 2.5 协作模式
+### 2.5 Collaboration Model
 
-每个 Agent **互不知道彼此的实现细节**,只通过 A2A 协议交换以下三类内容:
+Each agent **does not know the implementation details of the others**. They exchange only the following three categories through A2A:
 
-1. **`Message`**:自然语言或结构化数据的交换
-2. **`Artifact`**:Agent 的最终结构化输出
-3. **`TaskStatus`**:任务执行状态(`working` / `input-required` / `completed` 等)
+1. **`Message`**: natural language or structured data exchange
+2. **`Artifact`**: final structured output produced by an agent
+3. **`TaskStatus`**: task execution status (`working` / `input-required` / `completed`, etc.)
 
 ---
 
-## 03 目录结构
+## 03 Directory Structure
 
 ```
 a2a-aml-poc/
-├── main.py                          # 启动入口:并发拉起 3 个 Agent + CLI
-├── pyproject.toml                   # uv/poetry 依赖管理
-├── .env.example                     # 环境变量模板
-├── README.md                        # 本文档
+├── main.py                          # Startup entry: launch 3 agents + CLI concurrently
+├── pyproject.toml                   # uv/poetry dependency management
+├── .env.example                     # Environment variable template
+├── README.md                        # This document
 │
-├── a2a/                             # A2A 协议层(可独立抽出复用)
+├── a2a/                             # A2A protocol layer (can be extracted for reuse)
 │   ├── __init__.py
-│   ├── types.py                     # Task/Message/AgentCard/Artifact + TaskState 枚举
-│   ├── server.py                    # FastAPI 基类: /tasks/send, /tasks/sendSubscribe
-│   ├── client.py                    # httpx 异步客户端,封装 A2A 调用 + SSE 订阅
-│   └── registry.py                  # AGENT_ENDPOINTS 硬编码字典
+│   ├── types.py                     # Task/Message/AgentCard/Artifact + TaskState enum
+│   ├── server.py                    # FastAPI base: /tasks/send, /tasks/sendSubscribe
+│   ├── client.py                    # Async httpx client, A2A calls + SSE subscription wrapper
+│   └── registry.py                  # Hardcoded AGENT_ENDPOINTS dictionary
 │
 ├── agents/
-│   ├── host_agent/                  # 端口 10000,用户入口
+│   ├── host_agent/                  # Port 10000, user entry point
 │   │   ├── __init__.py
-│   │   ├── server.py                # 起 FastAPI,挂载 a2a.server
-│   │   ├── graph.py                 # LangGraph 协商逻辑
-│   │   ├── prompts.py               # 系统提示词
+│   │   ├── server.py                # Start FastAPI and mount a2a.server
+│   │   ├── graph.py                 # LangGraph coordination logic
+│   │   ├── prompts.py               # System prompts
 │   │   └── card.json                # AgentCard
 │   │
-│   ├── market_agent/                # 端口 10001
+│   ├── market_agent/                # Port 10001
 │   │   ├── server.py
 │   │   ├── graph.py
-│   │   ├── rag.py                   # numpy 余弦相似度 RAG
+│   │   ├── rag.py                   # Numpy cosine similarity RAG
 │   │   ├── prompts.py
 │   │   └── card.json
 │   │
-│   └── transaction_agent/           # 端口 10002
+│   └── transaction_agent/           # Port 10002
 │       ├── server.py
 │       ├── graph.py
 │       ├── prompts.py
 │       └── card.json
 │
-├── tools/                           # LangChain Tool,被 Agent 内部调用
-│   ├── market_search.py             # 检索 market_knowledge 向量库
-│   ├── transaction_query.py         # 查 transactions.json
-│   └── pattern_detector.py          # 启发式规则引擎
+├── tools/                           # LangChain tools used internally by agents
+│   ├── market_search.py             # Retrieve market_knowledge vector store
+│   ├── transaction_query.py         # Query transactions.json
+│   └── pattern_detector.py          # Heuristic rule engine
 │
 ├── storage/
-│   ├── task_store.py                # SQLite 封装(Task/Message 历史)
-│   └── schema.sql                   # 建表 SQL
+│   ├── task_store.py                # SQLite wrapper (Task/Message history)
+│   └── schema.sql                   # Table creation SQL
 │
 ├── mock_data/
-│   ├── market_knowledge.jsonl       # 商品价格知识(供 RAG)
-│   ├── market_embeddings.npy        # 预计算的 embedding 矩阵
-│   ├── transactions.json            # 交易流水
-│   └── test_cases.json              # 演示测试用例
+│   ├── market_knowledge.jsonl       # Asset pricing knowledge (for RAG)
+│   ├── market_embeddings.npy        # Precomputed embedding matrix
+│   ├── transactions.json            # Transaction logs
+│   └── test_cases.json              # Demo test cases
 │
 ├── scripts/
-│   ├── generate_mock_data.py        # 用 Claude 生成 mock 数据
-│   └── build_embeddings.py          # 一次性构建市场知识库 embeddings
+│   ├── generate_mock_data.py        # Generate mock data with Claude
+│   └── build_embeddings.py          # One-time market KB embedding builder
 │
 ├── cli/
-│   └── chat.py                      # rich + readline 流式展示
+│   └── chat.py                      # Streaming display with rich + readline
 ```
 
-### 3.1 关键文件职责说明
+### 3.1 Key File Responsibilities
 
-| 文件 | 职责 | 重要性 |
+| File | Responsibility | Importance |
 |---|---|---|
-| `a2a/types.py` | 整个系统的数据契约,所有 Agent 共享 
-| `a2a/server.py` | A2A HTTP 服务基类,所有 Agent 复用 
-| `agents/host_agent/graph.py` | 多轮协商核心逻辑,POC 价值的体现 
-| `scripts/generate_mock_data.py` | 数据生成,所有功能的前置依赖 
-| `cli/chat.py` | 演示效果决定 POC 成败 
+| `a2a/types.py` | Data contract shared across the whole system by all agents |
+| `a2a/server.py` | Reusable A2A HTTP service base for all agents |
+| `agents/host_agent/graph.py` | Core multi-round coordination logic, key POC value |
+| `scripts/generate_mock_data.py` | Data generation, prerequisite for all features |
+| `cli/chat.py` | Demo UX quality, critical for POC perception |
 
 ---
 
-## 04 数据存储设计
+## 04 Data Storage Design
 
 
-### 4.2 SQLite Schema 设计
+### 4.2 SQLite Schema Design
 
 `storage/schema.sql`:
 
 ```sql
 -- ─────────────────────────────────────────────────────────
--- A2A Task 表:每次 Agent 间调用对应一条 Task 记录
+-- A2A Task table: each inter-agent call corresponds to one Task
 -- ─────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS tasks (
     task_id        TEXT PRIMARY KEY,
-    session_id     TEXT NOT NULL,                -- 同一调查的所有 Task 共享
-    source_agent   TEXT NOT NULL,                -- 谁发起的
-    target_agent   TEXT NOT NULL,                -- 谁执行的
-    state          TEXT NOT NULL,                -- TaskState 枚举值
+    session_id     TEXT NOT NULL,                -- All tasks in the same investigation share this
+    source_agent   TEXT NOT NULL,                -- Caller
+    target_agent   TEXT NOT NULL,                -- Executor
+    state          TEXT NOT NULL,                -- TaskState enum value
     created_at     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -287,13 +287,13 @@ CREATE INDEX idx_tasks_session ON tasks(session_id);
 CREATE INDEX idx_tasks_state ON tasks(state);
 
 -- ─────────────────────────────────────────────────────────
--- Message 表:Task 内的消息流(可还原完整对话)
+-- Message table: message stream within a Task (full conversation replay)
 -- ─────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS messages (
     message_id     TEXT PRIMARY KEY,
     task_id        TEXT NOT NULL,
     role           TEXT NOT NULL,                -- 'user' | 'agent'
-    parts_json     TEXT NOT NULL,                -- Part[] 序列化
+    parts_json     TEXT NOT NULL,                -- Serialized Part[]
     timestamp      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (task_id) REFERENCES tasks(task_id)
 );
@@ -301,7 +301,7 @@ CREATE TABLE IF NOT EXISTS messages (
 CREATE INDEX idx_messages_task ON messages(task_id);
 
 -- ─────────────────────────────────────────────────────────
--- Artifact 表:Agent 产出的最终结构化结果
+-- Artifact table: final structured output produced by an agent
 -- ─────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS artifacts (
     artifact_id    TEXT PRIMARY KEY,
@@ -313,54 +313,55 @@ CREATE TABLE IF NOT EXISTS artifacts (
 );
 
 -- ─────────────────────────────────────────────────────────
--- 调查会话表:用户每次发起调查对应一个 session
+-- Investigation session table: each user investigation maps to one session
 -- ─────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS sessions (
     session_id     TEXT PRIMARY KEY,
-    user_query     TEXT NOT NULL,                -- 用户原始输入
-    final_report   TEXT,                         -- HostAgent 最终报告 JSON
+    user_query     TEXT NOT NULL,                -- Original user input
+    final_report   TEXT,                         -- HostAgent final report JSON
     risk_level     TEXT,                         -- LOW/MEDIUM/HIGH/CRITICAL
     started_at     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     completed_at   TIMESTAMP
 );
 ```
 
-### 4.3 数据生命周期
+### 4.3 Data Lifecycle
 
 ```
-用户输入
+User input
     │
     ▼
 ┌─────────────────────────────┐
-│ 创建 session(sessions 表)  │
+│ Create session (sessions)   │
 └──────────────┬──────────────┘
                │
                ▼
    ┌──────────────────────────┐
-   │ HostAgent 调用 X Agent    │ ──▶ 创建 task (tasks 表)
+   │ HostAgent calls X Agent  │ ──▶ Create task (tasks)
    │  ─────────────────────── │
-   │ 多轮 SSE 消息往来         │ ──▶ 写入 messages 表
+   │ Multi-round SSE exchange │ ──▶ Write messages
    │  ─────────────────────── │
-   │ X Agent 返回 Artifact     │ ──▶ 写入 artifacts 表
+   │ X Agent returns Artifact │ ──▶ Write artifacts
    └──────────────────────────┘
                │
-               │ (可能多次循环)
+               │ (may loop multiple times)
                ▼
 ┌─────────────────────────────┐
-│ 生成最终报告(更新 sessions) │
+│ Generate final report       │
+│ (update sessions)           │
 └─────────────────────────────┘
 ```
 
-### 4.4 mock_data 文件设计
+### 4.4 mock_data File Design
 
-| 文件 | 格式 | 规模 | 用途 |
+| File | Format | Scale | Purpose |
 |---|---|---|---|
-| `market_knowledge.jsonl` | 每行一个 JSON | 50-100 条 | RAG 检索源 |
-| `market_embeddings.npy` | numpy 二进制 | (N, 1024) | 预计算 embedding |
-| `transactions.json` | JSON 数组 | 200-500 笔 | TransactionAgent 数据源 |
-| `test_cases.json` | JSON 数组 | 5-10 个 | 演示用例 |
+| `market_knowledge.jsonl` | One JSON per line | 50-100 entries | RAG retrieval source |
+| `market_embeddings.npy` | Numpy binary | (N, 1024) | Precomputed embeddings |
+| `transactions.json` | JSON array | 200-500 records | TransactionAgent data source |
+| `test_cases.json` | JSON array | 5-10 cases | Demo scenarios |
 
-`market_knowledge.jsonl` 单条样例:
+Single-record example from `market_knowledge.jsonl`:
 ```json
 {
   "asset_id": "tesla_model_x_2024",
@@ -369,11 +370,11 @@ CREATE TABLE IF NOT EXISTS sessions (
   "price_range": {"min": 79990, "max": 119990, "currency": "USD"},
   "historical_mean": 95000,
   "historical_stddev": 12000,
-  "description": "2024 款 Tesla Model X,纯电动豪华 SUV,标配双电机..."
+  "description": "Tesla Model X 2024, all-electric luxury SUV, dual-motor standard configuration..."
 }
 ```
 
-`transactions.json` 单条样例:
+Single-record example from `transactions.json`:
 ```json
 {
   "tx_id": "tx_00042",
@@ -389,21 +390,21 @@ CREATE TABLE IF NOT EXISTS sessions (
 
 ---
 
-## 05 完整交互流程
+## 05 End-to-End Interaction Flow
 
-以 **Demo Case 2(Tesla $1M 异常交易)** 为例,展示从用户输入到最终报告的完整流程。
+Using **Demo Case 2 (Tesla $1M anomalous transaction)** as an example, this section shows the full path from user input to final report.
 
-### 5.1 时序图
+### 5.1 Sequence Diagram
 
 ```
 User           CLI         HostAgent      MarketAgent    TransactionAgent    SQLite
  │              │              │               │                │               │
- │  输入查询    │              │               │                │               │
+ │  Input query │              │               │                │               │
  │─────────────▶│              │               │                │               │
  │              │              │               │                │               │
  │              │ POST /tasks/sendSubscribe    │                │               │
  │              │─────────────▶│               │                │               │
- │              │              │ 创建 session  │                │               │
+ │              │              │ Create session│                │               │
  │              │              │──────────────────────────────────────────────▶│
  │              │              │               │                │               │
  │              │              │ ① parse_intent│                │               │
@@ -413,104 +414,104 @@ User           CLI         HostAgent      MarketAgent    TransactionAgent    SQL
  │              │◀─────────────│               │                │               │
  │              │              │               │                │               │
  │              │              │ ② plan_investigation           │               │
- │              │              │ LLM 决定:先查市场价           │               │
+ │              │              │ LLM decides: check market first│               │
  │              │              │               │                │               │
  │              │              │ POST /tasks/send (price check) │               │
  │              │              │──────────────▶│                │               │
- │              │              │               │ RAG 检索       │               │
- │              │              │               │ LLM 分析       │               │
+ │              │              │               │ RAG retrieval  │               │
+ │              │              │               │ LLM analysis   │               │
  │              │              │               │                │               │
- │              │              │  Artifact: 7.5σ 异常           │               │
+ │              │              │  Artifact: 7.5σ anomaly        │               │
  │              │              │◀──────────────│                │               │
  │              │              │               │                │               │
  │              │ SSE: market verdict received │                │               │
  │              │◀─────────────│               │                │               │
  │              │              │               │                │               │
  │              │              │ ③ evaluate    │                │               │
- │              │              │ LLM 决定:价格异常 → 查行为   │               │
+ │              │              │ LLM decides: price abnormal -> investigate behavior │
  │              │              │               │                │               │
  │              │              │ POST /tasks/send (user history)│               │
  │              │              │───────────────────────────────▶│               │
- │              │              │               │                │ 查 tx        │
- │              │              │               │                │ 模式分析     │
- │              │              │  Artifact: 3 笔关联高价交易    │               │
+ │              │              │               │                │ Query tx      │
+ │              │              │               │                │ Pattern analysis │
+ │              │              │  Artifact: 3 related high-price trades │       │
  │              │              │◀───────────────────────────────│               │
  │              │              │               │                │               │
  │              │ SSE: tx pattern received     │                │               │
  │              │◀─────────────│               │                │               │
  │              │              │               │                │               │
  │              │              │ ④ evaluate    │                │               │
- │              │              │ LLM 决定:再查对手方           │               │
+ │              │              │ LLM decides: check counterparties next │        │
  │              │              │               │                │               │
  │              │              │ POST /tasks/send (counterparty)│               │
  │              │              │───────────────────────────────▶│               │
- │              │              │  Artifact: 全是新开账户        │               │
+ │              │              │  Artifact: all newly created accounts │         │
  │              │              │◀───────────────────────────────│               │
  │              │              │               │                │               │
  │              │              │ ⑤ generate_report             │               │
- │              │              │ 综合证据 → CRITICAL            │               │
+ │              │              │ Synthesize evidence -> CRITICAL│               │
  │              │              │               │                │               │
- │              │              │ 写入 sessions 最终报告         │               │
+ │              │              │ Write final report to sessions │               │
  │              │              │──────────────────────────────────────────────▶│
  │              │              │               │                │               │
  │              │ SSE: state=completed + Artifact               │               │
  │              │◀─────────────│               │                │               │
  │              │              │               │                │               │
- │   最终报告   │              │               │                │               │
+ │  Final report│              │               │                │               │
  │◀─────────────│              │               │                │               │
 ```
 
-### 5.2 关键步骤详解
+### 5.2 Key Step Details
 
-#### 步骤 ①:意图解析
+#### Step ①: Intent Parsing
 
-**输入**:`"用户 U002 以 $1,000,000 出售 Tesla Model X"`
+**Input**: `"User U002 sold a Tesla Model X for $1,000,000"`
 
-**HostAgent 解析输出**(结构化):
+**HostAgent parsed output** (structured):
 ```json
 {
   "user_id": "U002",
   "asset": "Tesla Model X",
   "transaction_amount": 1000000,
   "transaction_type": "sale",
-  "investigation_goal": "判定该交易是否涉嫌洗钱"
+  "investigation_goal": "Determine whether this transaction may involve money laundering"
 }
 ```
 
-#### 步骤 ②:规划首次调查
+#### Step ②: Plan the First Investigation Action
 
-HostAgent 的 LLM 看到所有 AgentCard 后,**自主决策**首先调用谁。Prompt 关键片段:
+After seeing all AgentCards, the HostAgent's LLM **autonomously decides** which agent to call first. Key prompt excerpt:
 
 ```
-你有以下 Agent 可调用:
-- MarketAgent: 价格查询、价格异常检测
-- TransactionAgent: 用户历史、关联方分析、结构化检测
+Available agents:
+- MarketAgent: price lookup, price anomaly detection
+- TransactionAgent: user history, related-party analysis, structuring detection
 
-当前调查任务:判定 U002 以 $1M 出售 Tesla Model X 是否涉嫌洗钱。
+Current investigation task: determine whether U002 selling a Tesla Model X for $1M may involve money laundering.
 
-请决定:第一步应该调用哪个 Agent? 提什么问题?
+Decide: which agent should be called first, and what question should be asked?
 ```
 
-LLM 输出:
+LLM output:
 ```json
 {
   "next_agent": "MarketAgent",
   "skill": "price_anomaly_check",
-  "query": "Tesla Model X 2024 当前成交价 $1,000,000,异常程度?"
+  "query": "Current transaction price for Tesla Model X 2024 is $1,000,000. How abnormal is it?"
 }
 ```
 
-#### 步骤 ③ / ④:循环评估
+#### Step ③ / ④: Iterative Evaluation Loop
 
-每次收到 Agent 答复后,HostAgent 的 `evaluate_response` 节点都会让 LLM 判断:
-- 当前证据是否足以下结论?
-- 如果不够,下一步问谁、问什么?
+After each agent response, the HostAgent's `evaluate_response` node asks the LLM to judge:
+- Is the current evidence sufficient for a conclusion?
+- If not, who should be asked next and what should be asked?
 
-这个**条件回路**是整个 POC 最有展示价值的部分——它证明 Agent 之间是真的在"对话",而非走预设流程。
+This **conditional loop** is one of the most demonstrable values of the POC: it proves agents are actually "conversing" rather than following a fixed hardcoded flow.
 
-#### 步骤 ⑤:综合报告
+#### Step ⑤: Final Synthesis Report
 
-**最终输出**:
+**Final output**:
 ```json
 {
   "session_id": "sess_a1b2c3",
@@ -520,17 +521,17 @@ LLM 输出:
     {
       "step": 1,
       "agent": "MarketAgent",
-      "finding": "成交价 $1M 偏离市场均值 7.5σ"
+      "finding": "Transaction price $1M deviates from market mean by 7.5σ"
     },
     {
       "step": 2,
       "agent": "TransactionAgent",
-      "finding": "U002 过去 30 天有 3 笔类似 Tesla 高价交易"
+      "finding": "U002 made 3 similar high-price Tesla trades in the past 30 days"
     },
     {
       "step": 3,
       "agent": "TransactionAgent",
-      "finding": "3 笔交易对手方均为 7 天内新开账户"
+      "finding": "All 3 counterparties are accounts opened within 7 days"
     }
   ],
   "recommended_action": "FREEZE_AND_REPORT_SAR",
@@ -538,89 +539,89 @@ LLM 输出:
 }
 ```
 
-### 5.3 CLI 实时展示效果
+### 5.3 CLI Real-Time Display Example
 
 ```
 ┌─ AML Investigation ──────────────────────────────────────┐
-│ Query: 用户 U002 以 $1,000,000 出售 Tesla Model X         │
+│ Query: User U002 sold a Tesla Model X for $1,000,000    │
 └──────────────────────────────────────────────────────────┘
 
-[HostAgent] 解析意图... ✓
+[HostAgent] Parsing intent... ✓
    └─ Target: U002 / Tesla Model X / $1M
 
-[HostAgent] 规划调查... ✓
-   └─ Plan: Market check → Behavior analysis
+[HostAgent] Planning investigation... ✓
+   └─ Plan: Market check -> Behavior analysis
 
-[HostAgent → MarketAgent] 价格异常检测...
-   ├─ RAG 检索市场知识库 (50 条) ... ✓
-   ├─ LLM 推理 ... ✓
-   └─ 结果: $1M 偏离均值 7.5σ → EXTREMELY_ANOMALOUS
+[HostAgent -> MarketAgent] Running price anomaly check...
+   ├─ RAG retrieval from market knowledge base (50 entries) ... ✓
+   ├─ LLM reasoning ... ✓
+   └─ Result: $1M deviates from mean by 7.5σ -> EXTREMELY_ANOMALOUS
 
- [HostAgent] 评估证据 → 价格异常,需深挖用户行为
+[HostAgent] Evaluating evidence -> Price anomaly confirmed, deeper behavior analysis needed
 
- [HostAgent → TransactionAgent] 用户行为分析...
-   ├─ 查询交易流水 ... ✓
-   ├─ 模式分析 ... ✓
-   └─ 结果: 发现 3 笔关联 Tesla 高价交易
+[HostAgent -> TransactionAgent] Running user behavior analysis...
+   ├─ Querying transaction logs ... ✓
+   ├─ Pattern analysis ... ✓
+   └─ Result: 3 related high-price Tesla transactions detected
 
-[HostAgent] 评估证据 → 还需查对手方背景
+[HostAgent] Evaluating evidence -> Counterparty background check still needed
 
-[HostAgent → TransactionAgent] 关联方分析...
-   └─ 📊 结果: 3 个对手方均为 7 天内新开账户
+[HostAgent -> TransactionAgent] Running related-party analysis...
+   └─ Result: all 3 counterparties are newly opened accounts within 7 days
 
-[HostAgent] 生成最终报告...
+[HostAgent] Generating final report...
 
 ┌─ Final Report ───────────────────────────────────────────┐
-│ Risk Level: 🔴 CRITICAL                                  │
-│ Confidence: 94%                                          │
-│ Action: FREEZE_AND_REPORT_SAR                            │
-│ Evidence: 3 items (查看详情)                             │
+│ Risk Level: CRITICAL                                    │
+│ Confidence: 94%                                         │
+│ Action: FREEZE_AND_REPORT_SAR                           │
+│ Evidence: 3 items (view details)                        │
 └──────────────────────────────────────────────────────────┘
 
-⏱ Total time: 8.3s | A2A calls: 3 | Tokens: 12,450
+Total time: 8.3s | A2A calls: 3 | Tokens: 12,450
 ```
 
 ---
 
-## 06 快速开始
+## 06 Quick Start
 
-### 6.1 环境准备
+### 6.1 Environment Setup
 
 ```bash
-# 1. 克隆并进入项目
+# 1. Enter the project directory
 cd a2a-aml-poc
 
-# 2. 安装依赖(推荐 uv)
+# 2. Install dependencies (uv recommended)
 uv sync
-# 或使用 pip
+# or use pip
 pip install -e .
 
-# 3. 配置环境变量
+# 3. Configure environment variables
 cp .env.example .env
-# 编辑 .env,填入 ANTHROPIC_API_KEY
+# Edit .env and set ANTHROPIC_API_KEY
 ```
 
-### 6.2 初始化数据
+### 6.2 Initialize Data
 
 ```bash
-# 1. 生成 mock 数据(用 Claude 一次性生成)
+# 1. Generate mock data (one-time generation with Claude)
 python scripts/generate_mock_data.py
 
-# 2. 构建市场知识库 embeddings
+# 2. Build market knowledge base embeddings
 python scripts/build_embeddings.py
 
-# 3. 初始化 SQLite
+# 3. Initialize SQLite
 python -c "from storage.task_store import init_db; init_db()"
 ```
 
-### 6.3 启动系统
+### 6.3 Start the System
 
 ```bash
-# 一键启动:并发拉起 3 个 Agent + CLI
+# One-command startup: launch 3 agents + CLI concurrently
 python main.py
 ```
 
-预期输出:
+Expected output:
 ```
 ✓ HostAgent listening on http://localhost:10000
 ✓ MarketAgent listening on http://localhost:10001
@@ -630,8 +631,5 @@ python main.py
 
 Ready. Type your query below (or 'exit' to quit):
 > _
-```
-
-
 ```
 
