@@ -248,34 +248,17 @@ a2a-aml-poc/
 │
 ├── cli/
 │   └── chat.py                      # rich + readline 流式展示
-│
-└── tests/
-    ├── test_a2a_protocol.py         # A2A 协议层单元测试
-    └── test_demo_scenarios.py       # 端到端测试(跑 test_cases.json)
 ```
 
 ### 3.1 关键文件职责说明
 
 | 文件 | 职责 | 重要性 |
 |---|---|---|
-| `a2a/types.py` | 整个系统的数据契约,所有 Agent 共享 | ⭐⭐⭐⭐⭐ |
-| `a2a/server.py` | A2A HTTP 服务基类,所有 Agent 复用 | ⭐⭐⭐⭐⭐ |
-| `agents/host_agent/graph.py` | 多轮协商核心逻辑,POC 价值的体现 | ⭐⭐⭐⭐⭐ |
-| `scripts/generate_mock_data.py` | 数据生成,所有功能的前置依赖 | ⭐⭐⭐⭐ |
-| `cli/chat.py` | 演示效果决定 POC 成败 | ⭐⭐⭐⭐ |
-| `tests/test_demo_scenarios.py` | 演示前防翻车 | ⭐⭐⭐ |
-
-### 3.2 与原方案的关键变更
-
-| 原方案 | 修正后 | 原因 |
-|---|---|---|
-| `a2a/router.py`(进程内消息路由) | `a2a/server.py + client.py`(HTTP/SSE) | A2A 协议本质是跨进程标准 |
-| `agents/orchestrator.py` | `agents/host_agent/`(完整子包) | Host 也是 Agent,需暴露 AgentCard 和端口 |
-| `db/`(PostgreSQL + SQLAlchemy) | `storage/task_store.py`(SQLite) | POC 不需要 Postgres |
-| `docker-compose.yml` | 移除 | POC 直接 `python main.py` 启动 |
-| 缺 CLI 模块 | `cli/chat.py` | 演示需要 |
-| 缺测试 | `tests/` | 防演示翻车 |
-| 缺 embedding 构建脚本 | `scripts/build_embeddings.py` | RAG 需要预计算 |
+| `a2a/types.py` | 整个系统的数据契约,所有 Agent 共享 
+| `a2a/server.py` | A2A HTTP 服务基类,所有 Agent 复用 
+| `agents/host_agent/graph.py` | 多轮协商核心逻辑,POC 价值的体现 
+| `scripts/generate_mock_data.py` | 数据生成,所有功能的前置依赖 
+| `cli/chat.py` | 演示效果决定 POC 成败 
 
 ---
 
@@ -562,30 +545,30 @@ LLM 输出:
 │ Query: 用户 U002 以 $1,000,000 出售 Tesla Model X         │
 └──────────────────────────────────────────────────────────┘
 
-🔍 [HostAgent] 解析意图... ✓
+[HostAgent] 解析意图... ✓
    └─ Target: U002 / Tesla Model X / $1M
 
-📋 [HostAgent] 规划调查... ✓
+[HostAgent] 规划调查... ✓
    └─ Plan: Market check → Behavior analysis
 
-📡 [HostAgent → MarketAgent] 价格异常检测...
+[HostAgent → MarketAgent] 价格异常检测...
    ├─ RAG 检索市场知识库 (50 条) ... ✓
    ├─ LLM 推理 ... ✓
-   └─ 📊 结果: $1M 偏离均值 7.5σ → EXTREMELY_ANOMALOUS
+   └─ 结果: $1M 偏离均值 7.5σ → EXTREMELY_ANOMALOUS
 
-🤔 [HostAgent] 评估证据 → 价格异常,需深挖用户行为
+ [HostAgent] 评估证据 → 价格异常,需深挖用户行为
 
-📡 [HostAgent → TransactionAgent] 用户行为分析...
+ [HostAgent → TransactionAgent] 用户行为分析...
    ├─ 查询交易流水 ... ✓
    ├─ 模式分析 ... ✓
-   └─ 📊 结果: 发现 3 笔关联 Tesla 高价交易
+   └─ 结果: 发现 3 笔关联 Tesla 高价交易
 
-🤔 [HostAgent] 评估证据 → 还需查对手方背景
+[HostAgent] 评估证据 → 还需查对手方背景
 
-📡 [HostAgent → TransactionAgent] 关联方分析...
+[HostAgent → TransactionAgent] 关联方分析...
    └─ 📊 结果: 3 个对手方均为 7 天内新开账户
 
-📝 [HostAgent] 生成最终报告...
+[HostAgent] 生成最终报告...
 
 ┌─ Final Report ───────────────────────────────────────────┐
 │ Risk Level: 🔴 CRITICAL                                  │
@@ -649,78 +632,6 @@ Ready. Type your query below (or 'exit' to quit):
 > _
 ```
 
-### 6.4 运行测试
 
-```bash
-# 单元测试
-pytest tests/test_a2a_protocol.py
-
-# 端到端 demo case 测试
-pytest tests/test_demo_scenarios.py -v
 ```
 
----
-
-## 07 演示用例
-
-POC 准备 3 个精心设计的 demo case,从浅到深展示系统能力。
-
-### 7.1 Case 1:正常交易(展示"不误报")
-
-**输入**:`"用户 U001 以 $95,000 出售 Tesla Model X"`
-
-**预期流程**:
-- HostAgent → MarketAgent:价格判断
-- MarketAgent:$95K 在 $80K-$120K 区间内,正常
-- HostAgent:单轮判断足够,无需深挖
-- **报告**:`LOW risk`
-
-**演示价值**:证明系统不会过度调查,只在必要时调用更多 Agent。
-
-### 7.2 Case 2:明显价格异常(主推 demo)
-
-**输入**:`"用户 U002 以 $1,000,000 出售 Tesla Model X"`
-
-**预期流程**:见 [5.1 时序图](#51-时序图)
-
-**演示价值**:
-- 4 次 A2A 调用
-- 2 个 Agent 协作
-- 3 轮自主决策协商
-- 完整证据链生成
-
-### 7.3 Case 3:隐蔽分拆交易(展示反向调用顺序)
-
-**输入**:`"审查用户 U003 最近活动"`
-
-**预期流程**:
-- HostAgent → TransactionAgent:行为模式扫描
-- TransactionAgent:发现 12 笔 $9,500 转账(规避 $10K 阈值)
-- HostAgent → MarketAgent:这些交易涉及的商品价格是否合理?
-- MarketAgent:无对应商品流水,纯资金转移
-- **报告**:`HIGH risk` (structuring + 无真实商业实质)
-
-**演示价值**:证明 Host 是真的在"思考"——这个 case 调用顺序与 Case 2 相反,说明流程不是写死的。
-
----
-
-## 附录 A:扩展路线图(POC 之后)
-
-| 阶段 | 内容 | 工作量 |
-|---|---|---|
-| **POC**(本项目) | 3 Agent + 单机 + Mock 数据 | 1-2 周 |
-| **MVP** | 接入真实数据源,SQLite → PostgreSQL | 2-4 周 |
-| **生产化** | 容器化部署,加入认证、限流、审计 | 4-8 周 |
-| **能力扩展** | 加入 ComplianceAgent(法规库)、ReportingAgent(自动生成 SAR) | 持续 |
-
-## 附录 B:参考资料
-
-- [Google A2A Protocol Specification](https://google.github.io/A2A/)
-- [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
-- [Anthropic Claude API](https://docs.claude.com/)
-
----
-
-**文档版本**:v1.0  
-**最后更新**:2026-05-07  
-**作者**:[Your Name]
