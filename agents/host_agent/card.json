@@ -1,0 +1,16 @@
+{
+    "agent_name": "HostAgent",
+    "description": "User-facing coordination agent for AML investigation",
+    "skills": [
+        {
+            "skill_id": "investigation_orchestration",
+            "name": "Multi-agent orchestration",
+            "description": "Dispatch tasks to specialized agents and synthesize evidence"
+        },
+        {
+            "skill_id": "risk_report_generation",
+            "name": "Risk report generation",
+            "description": "Generate final structured AML risk report"
+        }
+    ]
+}

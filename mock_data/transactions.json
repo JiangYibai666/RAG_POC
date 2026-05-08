@@ -1,0 +1,2222 @@
+[
+  {
+    "tx_id": "tx_00001",
+    "timestamp": "2026-04-02T01:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C1409",
+    "asset_id": "other_asset",
+    "amount_usd": 89761.41,
+    "type": "transfer",
+    "counterparty_account_age_days": 126
+  },
+  {
+    "tx_id": "tx_00002",
+    "timestamp": "2026-04-03T02:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C3286",
+    "asset_id": "other_asset",
+    "amount_usd": 89167.13,
+    "type": "transfer",
+    "counterparty_account_age_days": 347
+  },
+  {
+    "tx_id": "tx_00003",
+    "timestamp": "2026-04-04T03:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C2424",
+    "asset_id": "other_asset",
+    "amount_usd": 72087.62,
+    "type": "sale",
+    "counterparty_account_age_days": 17
+  },
+  {
+    "tx_id": "tx_00004",
+    "timestamp": "2026-04-05T04:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C2535",
+    "asset_id": "other_asset",
+    "amount_usd": 28580.64,
+    "type": "transfer",
+    "counterparty_account_age_days": 259
+  },
+  {
+    "tx_id": "tx_00005",
+    "timestamp": "2026-04-06T05:12:00Z",
+    "user_id": "U020",
+    "counterparty_id": "C1434",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 68665.67,
+    "type": "transfer",
+    "counterparty_account_age_days": 333
+  },
+  {
+    "tx_id": "tx_00006",
+    "timestamp": "2026-04-07T06:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C7873",
+    "asset_id": "other_asset",
+    "amount_usd": 28791.55,
+    "type": "sale",
+    "counterparty_account_age_days": 302
+  },
+  {
+    "tx_id": "tx_00007",
+    "timestamp": "2026-04-08T07:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C1106",
+    "asset_id": "other_asset",
+    "amount_usd": 91780.46,
+    "type": "transfer",
+    "counterparty_account_age_days": 82
+  },
+  {
+    "tx_id": "tx_00008",
+    "timestamp": "2026-04-09T08:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C6574",
+    "asset_id": "other_asset",
+    "amount_usd": 35510.95,
+    "type": "transfer",
+    "counterparty_account_age_days": 111
+  },
+  {
+    "tx_id": "tx_00009",
+    "timestamp": "2026-04-10T00:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C2674",
+    "asset_id": "other_asset",
+    "amount_usd": 13851.26,
+    "type": "sale",
+    "counterparty_account_age_days": 50
+  },
+  {
+    "tx_id": "tx_00010",
+    "timestamp": "2026-04-11T01:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C6635",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 73635.95,
+    "type": "transfer",
+    "counterparty_account_age_days": 23
+  },
+  {
+    "tx_id": "tx_00011",
+    "timestamp": "2026-04-12T02:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C9785",
+    "asset_id": "other_asset",
+    "amount_usd": 17604.66,
+    "type": "transfer",
+    "counterparty_account_age_days": 194
+  },
+  {
+    "tx_id": "tx_00012",
+    "timestamp": "2026-04-13T03:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C5803",
+    "asset_id": "other_asset",
+    "amount_usd": 100040.35,
+    "type": "sale",
+    "counterparty_account_age_days": 317
+  },
+  {
+    "tx_id": "tx_00013",
+    "timestamp": "2026-04-14T04:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C4150",
+    "asset_id": "other_asset",
+    "amount_usd": 85434.9,
+    "type": "transfer",
+    "counterparty_account_age_days": 24
+  },
+  {
+    "tx_id": "tx_00014",
+    "timestamp": "2026-04-15T05:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C5741",
+    "asset_id": "other_asset",
+    "amount_usd": 118270.92,
+    "type": "transfer",
+    "counterparty_account_age_days": 120
+  },
+  {
+    "tx_id": "tx_00015",
+    "timestamp": "2026-04-16T06:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C7227",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 35522.91,
+    "type": "sale",
+    "counterparty_account_age_days": 326
+  },
+  {
+    "tx_id": "tx_00016",
+    "timestamp": "2026-04-17T07:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C3664",
+    "asset_id": "other_asset",
+    "amount_usd": 46311.17,
+    "type": "transfer",
+    "counterparty_account_age_days": 108
+  },
+  {
+    "tx_id": "tx_00017",
+    "timestamp": "2026-04-18T08:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C2169",
+    "asset_id": "other_asset",
+    "amount_usd": 74268.33,
+    "type": "transfer",
+    "counterparty_account_age_days": 88
+  },
+  {
+    "tx_id": "tx_00018",
+    "timestamp": "2026-04-19T00:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C5010",
+    "asset_id": "other_asset",
+    "amount_usd": 22118.09,
+    "type": "sale",
+    "counterparty_account_age_days": 195
+  },
+  {
+    "tx_id": "tx_00019",
+    "timestamp": "2026-04-20T01:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C4598",
+    "asset_id": "other_asset",
+    "amount_usd": 83099.87,
+    "type": "transfer",
+    "counterparty_account_age_days": 29
+  },
+  {
+    "tx_id": "tx_00020",
+    "timestamp": "2026-04-21T02:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C1525",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 97190.36,
+    "type": "transfer",
+    "counterparty_account_age_days": 206
+  },
+  {
+    "tx_id": "tx_00021",
+    "timestamp": "2026-04-22T03:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C2084",
+    "asset_id": "other_asset",
+    "amount_usd": 27684.99,
+    "type": "sale",
+    "counterparty_account_age_days": 291
+  },
+  {
+    "tx_id": "tx_00022",
+    "timestamp": "2026-04-23T04:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C4483",
+    "asset_id": "other_asset",
+    "amount_usd": 79686.32,
+    "type": "transfer",
+    "counterparty_account_age_days": 203
+  },
+  {
+    "tx_id": "tx_00023",
+    "timestamp": "2026-04-24T05:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C3340",
+    "asset_id": "other_asset",
+    "amount_usd": 33990.98,
+    "type": "transfer",
+    "counterparty_account_age_days": 127
+  },
+  {
+    "tx_id": "tx_00024",
+    "timestamp": "2026-04-25T06:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C9830",
+    "asset_id": "other_asset",
+    "amount_usd": 33740.77,
+    "type": "sale",
+    "counterparty_account_age_days": 300
+  },
+  {
+    "tx_id": "tx_00025",
+    "timestamp": "2026-04-26T07:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C7543",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 45353.58,
+    "type": "transfer",
+    "counterparty_account_age_days": 71
+  },
+  {
+    "tx_id": "tx_00026",
+    "timestamp": "2026-04-27T08:12:00Z",
+    "user_id": "U017",
+    "counterparty_id": "C9085",
+    "asset_id": "other_asset",
+    "amount_usd": 13636.4,
+    "type": "transfer",
+    "counterparty_account_age_days": 25
+  },
+  {
+    "tx_id": "tx_00027",
+    "timestamp": "2026-04-28T00:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C3504",
+    "asset_id": "other_asset",
+    "amount_usd": 76411.19,
+    "type": "sale",
+    "counterparty_account_age_days": 349
+  },
+  {
+    "tx_id": "tx_00028",
+    "timestamp": "2026-04-01T01:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C2040",
+    "asset_id": "other_asset",
+    "amount_usd": 48017.78,
+    "type": "transfer",
+    "counterparty_account_age_days": 306
+  },
+  {
+    "tx_id": "tx_00029",
+    "timestamp": "2026-04-02T02:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C9669",
+    "asset_id": "other_asset",
+    "amount_usd": 32415.45,
+    "type": "transfer",
+    "counterparty_account_age_days": 284
+  },
+  {
+    "tx_id": "tx_00030",
+    "timestamp": "2026-04-03T03:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C2876",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 82760.11,
+    "type": "sale",
+    "counterparty_account_age_days": 275
+  },
+  {
+    "tx_id": "tx_00031",
+    "timestamp": "2026-04-04T04:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C6573",
+    "asset_id": "other_asset",
+    "amount_usd": 16051.6,
+    "type": "transfer",
+    "counterparty_account_age_days": 223
+  },
+  {
+    "tx_id": "tx_00032",
+    "timestamp": "2026-04-05T05:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C8433",
+    "asset_id": "other_asset",
+    "amount_usd": 3379.7,
+    "type": "transfer",
+    "counterparty_account_age_days": 135
+  },
+  {
+    "tx_id": "tx_00033",
+    "timestamp": "2026-04-06T06:12:00Z",
+    "user_id": "U017",
+    "counterparty_id": "C3927",
+    "asset_id": "other_asset",
+    "amount_usd": 62398.76,
+    "type": "sale",
+    "counterparty_account_age_days": 55
+  },
+  {
+    "tx_id": "tx_00034",
+    "timestamp": "2026-04-07T07:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C9317",
+    "asset_id": "other_asset",
+    "amount_usd": 74249.51,
+    "type": "transfer",
+    "counterparty_account_age_days": 79
+  },
+  {
+    "tx_id": "tx_00035",
+    "timestamp": "2026-04-08T08:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C3646",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 66107.35,
+    "type": "transfer",
+    "counterparty_account_age_days": 272
+  },
+  {
+    "tx_id": "tx_00036",
+    "timestamp": "2026-04-09T00:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C6310",
+    "asset_id": "other_asset",
+    "amount_usd": 60166.87,
+    "type": "sale",
+    "counterparty_account_age_days": 58
+  },
+  {
+    "tx_id": "tx_00037",
+    "timestamp": "2026-04-10T01:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C6038",
+    "asset_id": "other_asset",
+    "amount_usd": 31015.92,
+    "type": "transfer",
+    "counterparty_account_age_days": 124
+  },
+  {
+    "tx_id": "tx_00038",
+    "timestamp": "2026-04-11T02:12:00Z",
+    "user_id": "U019",
+    "counterparty_id": "C2290",
+    "asset_id": "other_asset",
+    "amount_usd": 13021.45,
+    "type": "transfer",
+    "counterparty_account_age_days": 249
+  },
+  {
+    "tx_id": "tx_00039",
+    "timestamp": "2026-04-12T03:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C9727",
+    "asset_id": "other_asset",
+    "amount_usd": 92602.63,
+    "type": "sale",
+    "counterparty_account_age_days": 66
+  },
+  {
+    "tx_id": "tx_00040",
+    "timestamp": "2026-04-13T04:12:00Z",
+    "user_id": "U016",
+    "counterparty_id": "C3705",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 34011.63,
+    "type": "transfer",
+    "counterparty_account_age_days": 311
+  },
+  {
+    "tx_id": "tx_00041",
+    "timestamp": "2026-04-14T05:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C4470",
+    "asset_id": "other_asset",
+    "amount_usd": 111682.88,
+    "type": "transfer",
+    "counterparty_account_age_days": 354
+  },
+  {
+    "tx_id": "tx_00042",
+    "timestamp": "2026-04-15T06:12:00Z",
+    "user_id": "U007",
+    "counterparty_id": "C6107",
+    "asset_id": "other_asset",
+    "amount_usd": 49682.1,
+    "type": "sale",
+    "counterparty_account_age_days": 344
+  },
+  {
+    "tx_id": "tx_00043",
+    "timestamp": "2026-04-16T07:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C8177",
+    "asset_id": "other_asset",
+    "amount_usd": 108254.85,
+    "type": "transfer",
+    "counterparty_account_age_days": 232
+  },
+  {
+    "tx_id": "tx_00044",
+    "timestamp": "2026-04-17T08:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C5061",
+    "asset_id": "other_asset",
+    "amount_usd": 29289.59,
+    "type": "transfer",
+    "counterparty_account_age_days": 174
+  },
+  {
+    "tx_id": "tx_00045",
+    "timestamp": "2026-04-18T00:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C4770",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 71847.49,
+    "type": "sale",
+    "counterparty_account_age_days": 4
+  },
+  {
+    "tx_id": "tx_00046",
+    "timestamp": "2026-04-19T01:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C1964",
+    "asset_id": "other_asset",
+    "amount_usd": 29786.19,
+    "type": "transfer",
+    "counterparty_account_age_days": 17
+  },
+  {
+    "tx_id": "tx_00047",
+    "timestamp": "2026-04-20T02:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C2160",
+    "asset_id": "other_asset",
+    "amount_usd": 63156.27,
+    "type": "transfer",
+    "counterparty_account_age_days": 143
+  },
+  {
+    "tx_id": "tx_00048",
+    "timestamp": "2026-04-21T03:12:00Z",
+    "user_id": "U016",
+    "counterparty_id": "C4510",
+    "asset_id": "other_asset",
+    "amount_usd": 66090.37,
+    "type": "sale",
+    "counterparty_account_age_days": 293
+  },
+  {
+    "tx_id": "tx_00049",
+    "timestamp": "2026-04-22T04:12:00Z",
+    "user_id": "U019",
+    "counterparty_id": "C8744",
+    "asset_id": "other_asset",
+    "amount_usd": 31430.68,
+    "type": "transfer",
+    "counterparty_account_age_days": 243
+  },
+  {
+    "tx_id": "tx_00050",
+    "timestamp": "2026-04-23T05:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C4119",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 14036.12,
+    "type": "transfer",
+    "counterparty_account_age_days": 338
+  },
+  {
+    "tx_id": "tx_00051",
+    "timestamp": "2026-04-24T06:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C6804",
+    "asset_id": "other_asset",
+    "amount_usd": 52558.7,
+    "type": "sale",
+    "counterparty_account_age_days": 240
+  },
+  {
+    "tx_id": "tx_00052",
+    "timestamp": "2026-04-25T07:12:00Z",
+    "user_id": "U002",
+    "counterparty_id": "C2612",
+    "asset_id": "other_asset",
+    "amount_usd": 10091.68,
+    "type": "transfer",
+    "counterparty_account_age_days": 174
+  },
+  {
+    "tx_id": "tx_00053",
+    "timestamp": "2026-04-26T08:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C5073",
+    "asset_id": "other_asset",
+    "amount_usd": 25416.04,
+    "type": "transfer",
+    "counterparty_account_age_days": 275
+  },
+  {
+    "tx_id": "tx_00054",
+    "timestamp": "2026-04-27T00:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C3296",
+    "asset_id": "other_asset",
+    "amount_usd": 52360.15,
+    "type": "sale",
+    "counterparty_account_age_days": 143
+  },
+  {
+    "tx_id": "tx_00055",
+    "timestamp": "2026-04-28T01:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C5092",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 105314.86,
+    "type": "transfer",
+    "counterparty_account_age_days": 39
+  },
+  {
+    "tx_id": "tx_00056",
+    "timestamp": "2026-04-01T02:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C2604",
+    "asset_id": "other_asset",
+    "amount_usd": 8918.83,
+    "type": "transfer",
+    "counterparty_account_age_days": 277
+  },
+  {
+    "tx_id": "tx_00057",
+    "timestamp": "2026-04-02T03:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C2528",
+    "asset_id": "other_asset",
+    "amount_usd": 111384.94,
+    "type": "sale",
+    "counterparty_account_age_days": 122
+  },
+  {
+    "tx_id": "tx_00058",
+    "timestamp": "2026-04-03T04:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C7658",
+    "asset_id": "other_asset",
+    "amount_usd": 59820.01,
+    "type": "transfer",
+    "counterparty_account_age_days": 110
+  },
+  {
+    "tx_id": "tx_00059",
+    "timestamp": "2026-04-04T05:12:00Z",
+    "user_id": "U013",
+    "counterparty_id": "C1960",
+    "asset_id": "other_asset",
+    "amount_usd": 22262.54,
+    "type": "transfer",
+    "counterparty_account_age_days": 2
+  },
+  {
+    "tx_id": "tx_00060",
+    "timestamp": "2026-04-05T06:12:00Z",
+    "user_id": "U013",
+    "counterparty_id": "C5345",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 111402.61,
+    "type": "sale",
+    "counterparty_account_age_days": 233
+  },
+  {
+    "tx_id": "tx_00061",
+    "timestamp": "2026-04-06T07:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C7930",
+    "asset_id": "other_asset",
+    "amount_usd": 84501.21,
+    "type": "transfer",
+    "counterparty_account_age_days": 285
+  },
+  {
+    "tx_id": "tx_00062",
+    "timestamp": "2026-04-07T08:12:00Z",
+    "user_id": "U016",
+    "counterparty_id": "C3536",
+    "asset_id": "other_asset",
+    "amount_usd": 25218.05,
+    "type": "transfer",
+    "counterparty_account_age_days": 112
+  },
+  {
+    "tx_id": "tx_00063",
+    "timestamp": "2026-04-08T00:12:00Z",
+    "user_id": "U002",
+    "counterparty_id": "C9883",
+    "asset_id": "other_asset",
+    "amount_usd": 10132.04,
+    "type": "sale",
+    "counterparty_account_age_days": 161
+  },
+  {
+    "tx_id": "tx_00064",
+    "timestamp": "2026-04-09T01:12:00Z",
+    "user_id": "U002",
+    "counterparty_id": "C1821",
+    "asset_id": "other_asset",
+    "amount_usd": 71348.78,
+    "type": "transfer",
+    "counterparty_account_age_days": 258
+  },
+  {
+    "tx_id": "tx_00065",
+    "timestamp": "2026-04-10T02:12:00Z",
+    "user_id": "U017",
+    "counterparty_id": "C3579",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 9654.91,
+    "type": "transfer",
+    "counterparty_account_age_days": 261
+  },
+  {
+    "tx_id": "tx_00066",
+    "timestamp": "2026-04-11T03:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C4044",
+    "asset_id": "other_asset",
+    "amount_usd": 11017.0,
+    "type": "sale",
+    "counterparty_account_age_days": 35
+  },
+  {
+    "tx_id": "tx_00067",
+    "timestamp": "2026-04-12T04:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C7615",
+    "asset_id": "other_asset",
+    "amount_usd": 17026.73,
+    "type": "transfer",
+    "counterparty_account_age_days": 292
+  },
+  {
+    "tx_id": "tx_00068",
+    "timestamp": "2026-04-13T05:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C1651",
+    "asset_id": "other_asset",
+    "amount_usd": 75467.64,
+    "type": "transfer",
+    "counterparty_account_age_days": 215
+  },
+  {
+    "tx_id": "tx_00069",
+    "timestamp": "2026-04-14T06:12:00Z",
+    "user_id": "U019",
+    "counterparty_id": "C9565",
+    "asset_id": "other_asset",
+    "amount_usd": 40015.27,
+    "type": "sale",
+    "counterparty_account_age_days": 134
+  },
+  {
+    "tx_id": "tx_00070",
+    "timestamp": "2026-04-15T07:12:00Z",
+    "user_id": "U007",
+    "counterparty_id": "C6147",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 30926.26,
+    "type": "transfer",
+    "counterparty_account_age_days": 203
+  },
+  {
+    "tx_id": "tx_00071",
+    "timestamp": "2026-04-16T08:12:00Z",
+    "user_id": "U005",
+    "counterparty_id": "C5915",
+    "asset_id": "other_asset",
+    "amount_usd": 56495.27,
+    "type": "transfer",
+    "counterparty_account_age_days": 38
+  },
+  {
+    "tx_id": "tx_00072",
+    "timestamp": "2026-04-17T00:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C8508",
+    "asset_id": "other_asset",
+    "amount_usd": 75675.63,
+    "type": "sale",
+    "counterparty_account_age_days": 289
+  },
+  {
+    "tx_id": "tx_00073",
+    "timestamp": "2026-04-18T01:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C2200",
+    "asset_id": "other_asset",
+    "amount_usd": 65903.23,
+    "type": "transfer",
+    "counterparty_account_age_days": 260
+  },
+  {
+    "tx_id": "tx_00074",
+    "timestamp": "2026-04-19T02:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C3170",
+    "asset_id": "other_asset",
+    "amount_usd": 112191.35,
+    "type": "transfer",
+    "counterparty_account_age_days": 36
+  },
+  {
+    "tx_id": "tx_00075",
+    "timestamp": "2026-04-20T03:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C7054",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 36343.52,
+    "type": "sale",
+    "counterparty_account_age_days": 225
+  },
+  {
+    "tx_id": "tx_00076",
+    "timestamp": "2026-04-21T04:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C5956",
+    "asset_id": "other_asset",
+    "amount_usd": 74566.3,
+    "type": "transfer",
+    "counterparty_account_age_days": 335
+  },
+  {
+    "tx_id": "tx_00077",
+    "timestamp": "2026-04-22T05:12:00Z",
+    "user_id": "U017",
+    "counterparty_id": "C1128",
+    "asset_id": "other_asset",
+    "amount_usd": 81139.99,
+    "type": "transfer",
+    "counterparty_account_age_days": 284
+  },
+  {
+    "tx_id": "tx_00078",
+    "timestamp": "2026-04-23T06:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C2697",
+    "asset_id": "other_asset",
+    "amount_usd": 112854.81,
+    "type": "sale",
+    "counterparty_account_age_days": 69
+  },
+  {
+    "tx_id": "tx_00079",
+    "timestamp": "2026-04-24T07:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C2891",
+    "asset_id": "other_asset",
+    "amount_usd": 107096.39,
+    "type": "transfer",
+    "counterparty_account_age_days": 284
+  },
+  {
+    "tx_id": "tx_00080",
+    "timestamp": "2026-04-25T08:12:00Z",
+    "user_id": "U005",
+    "counterparty_id": "C5462",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 35965.48,
+    "type": "transfer",
+    "counterparty_account_age_days": 108
+  },
+  {
+    "tx_id": "tx_00081",
+    "timestamp": "2026-04-26T00:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C4335",
+    "asset_id": "other_asset",
+    "amount_usd": 83437.16,
+    "type": "sale",
+    "counterparty_account_age_days": 136
+  },
+  {
+    "tx_id": "tx_00082",
+    "timestamp": "2026-04-27T01:12:00Z",
+    "user_id": "U017",
+    "counterparty_id": "C9004",
+    "asset_id": "other_asset",
+    "amount_usd": 32381.19,
+    "type": "transfer",
+    "counterparty_account_age_days": 27
+  },
+  {
+    "tx_id": "tx_00083",
+    "timestamp": "2026-04-28T02:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C7939",
+    "asset_id": "other_asset",
+    "amount_usd": 100033.73,
+    "type": "transfer",
+    "counterparty_account_age_days": 23
+  },
+  {
+    "tx_id": "tx_00084",
+    "timestamp": "2026-04-01T03:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C6464",
+    "asset_id": "other_asset",
+    "amount_usd": 93220.95,
+    "type": "sale",
+    "counterparty_account_age_days": 327
+  },
+  {
+    "tx_id": "tx_00085",
+    "timestamp": "2026-04-02T04:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C3647",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 89724.02,
+    "type": "transfer",
+    "counterparty_account_age_days": 283
+  },
+  {
+    "tx_id": "tx_00086",
+    "timestamp": "2026-04-03T05:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C1158",
+    "asset_id": "other_asset",
+    "amount_usd": 16089.24,
+    "type": "transfer",
+    "counterparty_account_age_days": 354
+  },
+  {
+    "tx_id": "tx_00087",
+    "timestamp": "2026-04-04T06:12:00Z",
+    "user_id": "U005",
+    "counterparty_id": "C9938",
+    "asset_id": "other_asset",
+    "amount_usd": 7215.29,
+    "type": "sale",
+    "counterparty_account_age_days": 190
+  },
+  {
+    "tx_id": "tx_00088",
+    "timestamp": "2026-04-05T07:12:00Z",
+    "user_id": "U019",
+    "counterparty_id": "C3426",
+    "asset_id": "other_asset",
+    "amount_usd": 53285.05,
+    "type": "transfer",
+    "counterparty_account_age_days": 22
+  },
+  {
+    "tx_id": "tx_00089",
+    "timestamp": "2026-04-06T08:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C6974",
+    "asset_id": "other_asset",
+    "amount_usd": 108180.83,
+    "type": "transfer",
+    "counterparty_account_age_days": 21
+  },
+  {
+    "tx_id": "tx_00090",
+    "timestamp": "2026-04-07T00:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C4441",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 82801.8,
+    "type": "sale",
+    "counterparty_account_age_days": 342
+  },
+  {
+    "tx_id": "tx_00091",
+    "timestamp": "2026-04-08T01:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C6794",
+    "asset_id": "other_asset",
+    "amount_usd": 94273.6,
+    "type": "transfer",
+    "counterparty_account_age_days": 209
+  },
+  {
+    "tx_id": "tx_00092",
+    "timestamp": "2026-04-09T02:12:00Z",
+    "user_id": "U020",
+    "counterparty_id": "C3532",
+    "asset_id": "other_asset",
+    "amount_usd": 111314.37,
+    "type": "transfer",
+    "counterparty_account_age_days": 122
+  },
+  {
+    "tx_id": "tx_00093",
+    "timestamp": "2026-04-10T03:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C3900",
+    "asset_id": "other_asset",
+    "amount_usd": 106125.7,
+    "type": "sale",
+    "counterparty_account_age_days": 13
+  },
+  {
+    "tx_id": "tx_00094",
+    "timestamp": "2026-04-11T04:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C6442",
+    "asset_id": "other_asset",
+    "amount_usd": 94539.22,
+    "type": "transfer",
+    "counterparty_account_age_days": 211
+  },
+  {
+    "tx_id": "tx_00095",
+    "timestamp": "2026-04-12T05:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C5371",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 21626.15,
+    "type": "transfer",
+    "counterparty_account_age_days": 360
+  },
+  {
+    "tx_id": "tx_00096",
+    "timestamp": "2026-04-13T06:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C7267",
+    "asset_id": "other_asset",
+    "amount_usd": 105043.51,
+    "type": "sale",
+    "counterparty_account_age_days": 241
+  },
+  {
+    "tx_id": "tx_00097",
+    "timestamp": "2026-04-14T07:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C4269",
+    "asset_id": "other_asset",
+    "amount_usd": 98540.63,
+    "type": "transfer",
+    "counterparty_account_age_days": 236
+  },
+  {
+    "tx_id": "tx_00098",
+    "timestamp": "2026-04-15T08:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C6000",
+    "asset_id": "other_asset",
+    "amount_usd": 99002.76,
+    "type": "transfer",
+    "counterparty_account_age_days": 117
+  },
+  {
+    "tx_id": "tx_00099",
+    "timestamp": "2026-04-16T00:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C1387",
+    "asset_id": "other_asset",
+    "amount_usd": 80223.88,
+    "type": "sale",
+    "counterparty_account_age_days": 205
+  },
+  {
+    "tx_id": "tx_00100",
+    "timestamp": "2026-04-17T01:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C5564",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 104129.29,
+    "type": "transfer",
+    "counterparty_account_age_days": 143
+  },
+  {
+    "tx_id": "tx_00101",
+    "timestamp": "2026-04-18T02:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C9346",
+    "asset_id": "other_asset",
+    "amount_usd": 49762.37,
+    "type": "transfer",
+    "counterparty_account_age_days": 275
+  },
+  {
+    "tx_id": "tx_00102",
+    "timestamp": "2026-04-19T03:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C1452",
+    "asset_id": "other_asset",
+    "amount_usd": 16494.98,
+    "type": "sale",
+    "counterparty_account_age_days": 134
+  },
+  {
+    "tx_id": "tx_00103",
+    "timestamp": "2026-04-20T04:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C5349",
+    "asset_id": "other_asset",
+    "amount_usd": 7476.09,
+    "type": "transfer",
+    "counterparty_account_age_days": 306
+  },
+  {
+    "tx_id": "tx_00104",
+    "timestamp": "2026-04-21T05:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C6663",
+    "asset_id": "other_asset",
+    "amount_usd": 88239.77,
+    "type": "transfer",
+    "counterparty_account_age_days": 161
+  },
+  {
+    "tx_id": "tx_00105",
+    "timestamp": "2026-04-22T06:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C9379",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 16530.56,
+    "type": "sale",
+    "counterparty_account_age_days": 296
+  },
+  {
+    "tx_id": "tx_00106",
+    "timestamp": "2026-04-23T07:12:00Z",
+    "user_id": "U007",
+    "counterparty_id": "C5173",
+    "asset_id": "other_asset",
+    "amount_usd": 8193.22,
+    "type": "transfer",
+    "counterparty_account_age_days": 224
+  },
+  {
+    "tx_id": "tx_00107",
+    "timestamp": "2026-04-24T08:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C9518",
+    "asset_id": "other_asset",
+    "amount_usd": 111292.29,
+    "type": "transfer",
+    "counterparty_account_age_days": 276
+  },
+  {
+    "tx_id": "tx_00108",
+    "timestamp": "2026-04-25T00:12:00Z",
+    "user_id": "U007",
+    "counterparty_id": "C6967",
+    "asset_id": "other_asset",
+    "amount_usd": 53461.8,
+    "type": "sale",
+    "counterparty_account_age_days": 341
+  },
+  {
+    "tx_id": "tx_00109",
+    "timestamp": "2026-04-26T01:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C6143",
+    "asset_id": "other_asset",
+    "amount_usd": 80616.33,
+    "type": "transfer",
+    "counterparty_account_age_days": 64
+  },
+  {
+    "tx_id": "tx_00110",
+    "timestamp": "2026-04-27T02:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C9308",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 39186.31,
+    "type": "transfer",
+    "counterparty_account_age_days": 210
+  },
+  {
+    "tx_id": "tx_00111",
+    "timestamp": "2026-04-28T03:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C7592",
+    "asset_id": "other_asset",
+    "amount_usd": 84573.38,
+    "type": "sale",
+    "counterparty_account_age_days": 284
+  },
+  {
+    "tx_id": "tx_00112",
+    "timestamp": "2026-04-01T04:12:00Z",
+    "user_id": "U005",
+    "counterparty_id": "C4143",
+    "asset_id": "other_asset",
+    "amount_usd": 52192.22,
+    "type": "transfer",
+    "counterparty_account_age_days": 195
+  },
+  {
+    "tx_id": "tx_00113",
+    "timestamp": "2026-04-02T05:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C5930",
+    "asset_id": "other_asset",
+    "amount_usd": 50510.79,
+    "type": "transfer",
+    "counterparty_account_age_days": 1
+  },
+  {
+    "tx_id": "tx_00114",
+    "timestamp": "2026-04-03T06:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C5700",
+    "asset_id": "other_asset",
+    "amount_usd": 27591.37,
+    "type": "sale",
+    "counterparty_account_age_days": 297
+  },
+  {
+    "tx_id": "tx_00115",
+    "timestamp": "2026-04-04T07:12:00Z",
+    "user_id": "U020",
+    "counterparty_id": "C6279",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 57403.62,
+    "type": "transfer",
+    "counterparty_account_age_days": 227
+  },
+  {
+    "tx_id": "tx_00116",
+    "timestamp": "2026-04-05T08:12:00Z",
+    "user_id": "U007",
+    "counterparty_id": "C9375",
+    "asset_id": "other_asset",
+    "amount_usd": 58362.78,
+    "type": "transfer",
+    "counterparty_account_age_days": 87
+  },
+  {
+    "tx_id": "tx_00117",
+    "timestamp": "2026-04-06T00:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C5649",
+    "asset_id": "other_asset",
+    "amount_usd": 63307.89,
+    "type": "sale",
+    "counterparty_account_age_days": 325
+  },
+  {
+    "tx_id": "tx_00118",
+    "timestamp": "2026-04-07T01:12:00Z",
+    "user_id": "U020",
+    "counterparty_id": "C6491",
+    "asset_id": "other_asset",
+    "amount_usd": 13926.3,
+    "type": "transfer",
+    "counterparty_account_age_days": 121
+  },
+  {
+    "tx_id": "tx_00119",
+    "timestamp": "2026-04-08T02:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C4680",
+    "asset_id": "other_asset",
+    "amount_usd": 97367.86,
+    "type": "transfer",
+    "counterparty_account_age_days": 76
+  },
+  {
+    "tx_id": "tx_00120",
+    "timestamp": "2026-04-09T03:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C1757",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 31646.58,
+    "type": "sale",
+    "counterparty_account_age_days": 244
+  },
+  {
+    "tx_id": "tx_00121",
+    "timestamp": "2026-04-10T04:12:00Z",
+    "user_id": "U020",
+    "counterparty_id": "C2193",
+    "asset_id": "other_asset",
+    "amount_usd": 56283.69,
+    "type": "transfer",
+    "counterparty_account_age_days": 323
+  },
+  {
+    "tx_id": "tx_00122",
+    "timestamp": "2026-04-11T05:12:00Z",
+    "user_id": "U019",
+    "counterparty_id": "C4185",
+    "asset_id": "other_asset",
+    "amount_usd": 87046.47,
+    "type": "transfer",
+    "counterparty_account_age_days": 197
+  },
+  {
+    "tx_id": "tx_00123",
+    "timestamp": "2026-04-12T06:12:00Z",
+    "user_id": "U016",
+    "counterparty_id": "C7547",
+    "asset_id": "other_asset",
+    "amount_usd": 31546.18,
+    "type": "sale",
+    "counterparty_account_age_days": 336
+  },
+  {
+    "tx_id": "tx_00124",
+    "timestamp": "2026-04-13T07:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C2746",
+    "asset_id": "other_asset",
+    "amount_usd": 94075.19,
+    "type": "transfer",
+    "counterparty_account_age_days": 113
+  },
+  {
+    "tx_id": "tx_00125",
+    "timestamp": "2026-04-14T08:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C9486",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 57352.34,
+    "type": "transfer",
+    "counterparty_account_age_days": 286
+  },
+  {
+    "tx_id": "tx_00126",
+    "timestamp": "2026-04-15T00:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C2988",
+    "asset_id": "other_asset",
+    "amount_usd": 56406.03,
+    "type": "sale",
+    "counterparty_account_age_days": 238
+  },
+  {
+    "tx_id": "tx_00127",
+    "timestamp": "2026-04-16T01:12:00Z",
+    "user_id": "U017",
+    "counterparty_id": "C6198",
+    "asset_id": "other_asset",
+    "amount_usd": 114154.63,
+    "type": "transfer",
+    "counterparty_account_age_days": 227
+  },
+  {
+    "tx_id": "tx_00128",
+    "timestamp": "2026-04-17T02:12:00Z",
+    "user_id": "U020",
+    "counterparty_id": "C9270",
+    "asset_id": "other_asset",
+    "amount_usd": 52928.67,
+    "type": "transfer",
+    "counterparty_account_age_days": 281
+  },
+  {
+    "tx_id": "tx_00129",
+    "timestamp": "2026-04-18T03:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C3607",
+    "asset_id": "other_asset",
+    "amount_usd": 90007.69,
+    "type": "sale",
+    "counterparty_account_age_days": 244
+  },
+  {
+    "tx_id": "tx_00130",
+    "timestamp": "2026-04-19T04:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C5246",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 90957.88,
+    "type": "transfer",
+    "counterparty_account_age_days": 327
+  },
+  {
+    "tx_id": "tx_00131",
+    "timestamp": "2026-04-20T05:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C9540",
+    "asset_id": "other_asset",
+    "amount_usd": 59697.85,
+    "type": "transfer",
+    "counterparty_account_age_days": 123
+  },
+  {
+    "tx_id": "tx_00132",
+    "timestamp": "2026-04-21T06:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C8206",
+    "asset_id": "other_asset",
+    "amount_usd": 12065.55,
+    "type": "sale",
+    "counterparty_account_age_days": 147
+  },
+  {
+    "tx_id": "tx_00133",
+    "timestamp": "2026-04-22T07:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C5451",
+    "asset_id": "other_asset",
+    "amount_usd": 42294.16,
+    "type": "transfer",
+    "counterparty_account_age_days": 277
+  },
+  {
+    "tx_id": "tx_00134",
+    "timestamp": "2026-04-23T08:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C3267",
+    "asset_id": "other_asset",
+    "amount_usd": 20647.19,
+    "type": "transfer",
+    "counterparty_account_age_days": 197
+  },
+  {
+    "tx_id": "tx_00135",
+    "timestamp": "2026-04-24T00:12:00Z",
+    "user_id": "U005",
+    "counterparty_id": "C4505",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 10514.78,
+    "type": "sale",
+    "counterparty_account_age_days": 209
+  },
+  {
+    "tx_id": "tx_00136",
+    "timestamp": "2026-04-25T01:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C9890",
+    "asset_id": "other_asset",
+    "amount_usd": 57513.14,
+    "type": "transfer",
+    "counterparty_account_age_days": 32
+  },
+  {
+    "tx_id": "tx_00137",
+    "timestamp": "2026-04-26T02:12:00Z",
+    "user_id": "U007",
+    "counterparty_id": "C7883",
+    "asset_id": "other_asset",
+    "amount_usd": 48568.79,
+    "type": "transfer",
+    "counterparty_account_age_days": 300
+  },
+  {
+    "tx_id": "tx_00138",
+    "timestamp": "2026-04-27T03:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C7232",
+    "asset_id": "other_asset",
+    "amount_usd": 58806.63,
+    "type": "sale",
+    "counterparty_account_age_days": 181
+  },
+  {
+    "tx_id": "tx_00139",
+    "timestamp": "2026-04-28T04:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C7389",
+    "asset_id": "other_asset",
+    "amount_usd": 102853.41,
+    "type": "transfer",
+    "counterparty_account_age_days": 215
+  },
+  {
+    "tx_id": "tx_00140",
+    "timestamp": "2026-04-01T05:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C9947",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 96584.58,
+    "type": "transfer",
+    "counterparty_account_age_days": 113
+  },
+  {
+    "tx_id": "tx_00141",
+    "timestamp": "2026-04-02T06:12:00Z",
+    "user_id": "U016",
+    "counterparty_id": "C4595",
+    "asset_id": "other_asset",
+    "amount_usd": 34933.43,
+    "type": "sale",
+    "counterparty_account_age_days": 249
+  },
+  {
+    "tx_id": "tx_00142",
+    "timestamp": "2026-04-03T07:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C7371",
+    "asset_id": "other_asset",
+    "amount_usd": 42327.16,
+    "type": "transfer",
+    "counterparty_account_age_days": 348
+  },
+  {
+    "tx_id": "tx_00143",
+    "timestamp": "2026-04-04T08:12:00Z",
+    "user_id": "U013",
+    "counterparty_id": "C3704",
+    "asset_id": "other_asset",
+    "amount_usd": 101339.16,
+    "type": "transfer",
+    "counterparty_account_age_days": 66
+  },
+  {
+    "tx_id": "tx_00144",
+    "timestamp": "2026-04-05T00:12:00Z",
+    "user_id": "U020",
+    "counterparty_id": "C9751",
+    "asset_id": "other_asset",
+    "amount_usd": 6155.07,
+    "type": "sale",
+    "counterparty_account_age_days": 202
+  },
+  {
+    "tx_id": "tx_00145",
+    "timestamp": "2026-04-06T01:12:00Z",
+    "user_id": "U019",
+    "counterparty_id": "C1444",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 12821.85,
+    "type": "transfer",
+    "counterparty_account_age_days": 220
+  },
+  {
+    "tx_id": "tx_00146",
+    "timestamp": "2026-04-07T02:12:00Z",
+    "user_id": "U005",
+    "counterparty_id": "C8564",
+    "asset_id": "other_asset",
+    "amount_usd": 24262.3,
+    "type": "transfer",
+    "counterparty_account_age_days": 134
+  },
+  {
+    "tx_id": "tx_00147",
+    "timestamp": "2026-04-08T03:12:00Z",
+    "user_id": "U013",
+    "counterparty_id": "C6363",
+    "asset_id": "other_asset",
+    "amount_usd": 27764.25,
+    "type": "sale",
+    "counterparty_account_age_days": 168
+  },
+  {
+    "tx_id": "tx_00148",
+    "timestamp": "2026-04-09T04:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C7211",
+    "asset_id": "other_asset",
+    "amount_usd": 35556.02,
+    "type": "transfer",
+    "counterparty_account_age_days": 216
+  },
+  {
+    "tx_id": "tx_00149",
+    "timestamp": "2026-04-10T05:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C2341",
+    "asset_id": "other_asset",
+    "amount_usd": 58025.9,
+    "type": "transfer",
+    "counterparty_account_age_days": 277
+  },
+  {
+    "tx_id": "tx_00150",
+    "timestamp": "2026-04-11T06:12:00Z",
+    "user_id": "U002",
+    "counterparty_id": "C6733",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 29233.99,
+    "type": "sale",
+    "counterparty_account_age_days": 36
+  },
+  {
+    "tx_id": "tx_00151",
+    "timestamp": "2026-04-12T07:12:00Z",
+    "user_id": "U002",
+    "counterparty_id": "C1508",
+    "asset_id": "other_asset",
+    "amount_usd": 114104.57,
+    "type": "transfer",
+    "counterparty_account_age_days": 103
+  },
+  {
+    "tx_id": "tx_00152",
+    "timestamp": "2026-04-13T08:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C3496",
+    "asset_id": "other_asset",
+    "amount_usd": 30909.76,
+    "type": "transfer",
+    "counterparty_account_age_days": 243
+  },
+  {
+    "tx_id": "tx_00153",
+    "timestamp": "2026-04-14T00:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C4571",
+    "asset_id": "other_asset",
+    "amount_usd": 57408.98,
+    "type": "sale",
+    "counterparty_account_age_days": 132
+  },
+  {
+    "tx_id": "tx_00154",
+    "timestamp": "2026-04-15T01:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C3749",
+    "asset_id": "other_asset",
+    "amount_usd": 73889.45,
+    "type": "transfer",
+    "counterparty_account_age_days": 59
+  },
+  {
+    "tx_id": "tx_00155",
+    "timestamp": "2026-04-16T02:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C6096",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 15647.55,
+    "type": "transfer",
+    "counterparty_account_age_days": 14
+  },
+  {
+    "tx_id": "tx_00156",
+    "timestamp": "2026-04-17T03:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C7149",
+    "asset_id": "other_asset",
+    "amount_usd": 49408.57,
+    "type": "sale",
+    "counterparty_account_age_days": 102
+  },
+  {
+    "tx_id": "tx_00157",
+    "timestamp": "2026-04-18T04:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C4978",
+    "asset_id": "other_asset",
+    "amount_usd": 14922.45,
+    "type": "transfer",
+    "counterparty_account_age_days": 155
+  },
+  {
+    "tx_id": "tx_00158",
+    "timestamp": "2026-04-19T05:12:00Z",
+    "user_id": "U020",
+    "counterparty_id": "C2983",
+    "asset_id": "other_asset",
+    "amount_usd": 96158.58,
+    "type": "transfer",
+    "counterparty_account_age_days": 290
+  },
+  {
+    "tx_id": "tx_00159",
+    "timestamp": "2026-04-20T06:12:00Z",
+    "user_id": "U002",
+    "counterparty_id": "C6688",
+    "asset_id": "other_asset",
+    "amount_usd": 65331.19,
+    "type": "sale",
+    "counterparty_account_age_days": 339
+  },
+  {
+    "tx_id": "tx_00160",
+    "timestamp": "2026-04-21T07:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C2129",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 62197.41,
+    "type": "transfer",
+    "counterparty_account_age_days": 175
+  },
+  {
+    "tx_id": "tx_00161",
+    "timestamp": "2026-04-22T08:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C7882",
+    "asset_id": "other_asset",
+    "amount_usd": 99212.72,
+    "type": "transfer",
+    "counterparty_account_age_days": 55
+  },
+  {
+    "tx_id": "tx_00162",
+    "timestamp": "2026-04-23T00:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C6934",
+    "asset_id": "other_asset",
+    "amount_usd": 77363.46,
+    "type": "sale",
+    "counterparty_account_age_days": 236
+  },
+  {
+    "tx_id": "tx_00163",
+    "timestamp": "2026-04-24T01:12:00Z",
+    "user_id": "U005",
+    "counterparty_id": "C8135",
+    "asset_id": "other_asset",
+    "amount_usd": 23608.02,
+    "type": "transfer",
+    "counterparty_account_age_days": 268
+  },
+  {
+    "tx_id": "tx_00164",
+    "timestamp": "2026-04-25T02:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C9817",
+    "asset_id": "other_asset",
+    "amount_usd": 93633.05,
+    "type": "transfer",
+    "counterparty_account_age_days": 239
+  },
+  {
+    "tx_id": "tx_00165",
+    "timestamp": "2026-04-26T03:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C5397",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 40709.64,
+    "type": "sale",
+    "counterparty_account_age_days": 126
+  },
+  {
+    "tx_id": "tx_00166",
+    "timestamp": "2026-04-27T04:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C5569",
+    "asset_id": "other_asset",
+    "amount_usd": 106150.85,
+    "type": "transfer",
+    "counterparty_account_age_days": 125
+  },
+  {
+    "tx_id": "tx_00167",
+    "timestamp": "2026-04-28T05:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C7209",
+    "asset_id": "other_asset",
+    "amount_usd": 42358.4,
+    "type": "transfer",
+    "counterparty_account_age_days": 254
+  },
+  {
+    "tx_id": "tx_00168",
+    "timestamp": "2026-04-01T06:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C3979",
+    "asset_id": "other_asset",
+    "amount_usd": 60043.34,
+    "type": "sale",
+    "counterparty_account_age_days": 182
+  },
+  {
+    "tx_id": "tx_00169",
+    "timestamp": "2026-04-02T07:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C6576",
+    "asset_id": "other_asset",
+    "amount_usd": 35720.04,
+    "type": "transfer",
+    "counterparty_account_age_days": 306
+  },
+  {
+    "tx_id": "tx_00170",
+    "timestamp": "2026-04-03T08:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C1166",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 63445.39,
+    "type": "transfer",
+    "counterparty_account_age_days": 98
+  },
+  {
+    "tx_id": "tx_00171",
+    "timestamp": "2026-04-04T00:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C4954",
+    "asset_id": "other_asset",
+    "amount_usd": 87248.74,
+    "type": "sale",
+    "counterparty_account_age_days": 251
+  },
+  {
+    "tx_id": "tx_00172",
+    "timestamp": "2026-04-05T01:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C4937",
+    "asset_id": "other_asset",
+    "amount_usd": 83801.29,
+    "type": "transfer",
+    "counterparty_account_age_days": 331
+  },
+  {
+    "tx_id": "tx_00173",
+    "timestamp": "2026-04-06T02:12:00Z",
+    "user_id": "U016",
+    "counterparty_id": "C8342",
+    "asset_id": "other_asset",
+    "amount_usd": 95773.15,
+    "type": "transfer",
+    "counterparty_account_age_days": 48
+  },
+  {
+    "tx_id": "tx_00174",
+    "timestamp": "2026-04-07T03:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C4630",
+    "asset_id": "other_asset",
+    "amount_usd": 50314.93,
+    "type": "sale",
+    "counterparty_account_age_days": 125
+  },
+  {
+    "tx_id": "tx_00175",
+    "timestamp": "2026-04-08T04:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C7046",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 58371.48,
+    "type": "transfer",
+    "counterparty_account_age_days": 272
+  },
+  {
+    "tx_id": "tx_00176",
+    "timestamp": "2026-04-09T05:12:00Z",
+    "user_id": "U012",
+    "counterparty_id": "C7971",
+    "asset_id": "other_asset",
+    "amount_usd": 119605.88,
+    "type": "transfer",
+    "counterparty_account_age_days": 282
+  },
+  {
+    "tx_id": "tx_00177",
+    "timestamp": "2026-04-10T06:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C6764",
+    "asset_id": "other_asset",
+    "amount_usd": 85234.03,
+    "type": "sale",
+    "counterparty_account_age_days": 139
+  },
+  {
+    "tx_id": "tx_00178",
+    "timestamp": "2026-04-11T07:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C5118",
+    "asset_id": "other_asset",
+    "amount_usd": 29972.95,
+    "type": "transfer",
+    "counterparty_account_age_days": 99
+  },
+  {
+    "tx_id": "tx_00179",
+    "timestamp": "2026-04-12T08:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C2958",
+    "asset_id": "other_asset",
+    "amount_usd": 89917.08,
+    "type": "transfer",
+    "counterparty_account_age_days": 354
+  },
+  {
+    "tx_id": "tx_00180",
+    "timestamp": "2026-04-13T00:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C4138",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 28317.0,
+    "type": "sale",
+    "counterparty_account_age_days": 248
+  },
+  {
+    "tx_id": "tx_00181",
+    "timestamp": "2026-04-14T01:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C9595",
+    "asset_id": "other_asset",
+    "amount_usd": 72824.52,
+    "type": "transfer",
+    "counterparty_account_age_days": 52
+  },
+  {
+    "tx_id": "tx_00182",
+    "timestamp": "2026-04-15T02:12:00Z",
+    "user_id": "U007",
+    "counterparty_id": "C5853",
+    "asset_id": "other_asset",
+    "amount_usd": 29615.53,
+    "type": "transfer",
+    "counterparty_account_age_days": 92
+  },
+  {
+    "tx_id": "tx_00183",
+    "timestamp": "2026-04-16T03:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C1231",
+    "asset_id": "other_asset",
+    "amount_usd": 85838.16,
+    "type": "sale",
+    "counterparty_account_age_days": 65
+  },
+  {
+    "tx_id": "tx_00184",
+    "timestamp": "2026-04-17T04:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C1745",
+    "asset_id": "other_asset",
+    "amount_usd": 116992.51,
+    "type": "transfer",
+    "counterparty_account_age_days": 284
+  },
+  {
+    "tx_id": "tx_00185",
+    "timestamp": "2026-04-18T05:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C3068",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 77630.75,
+    "type": "transfer",
+    "counterparty_account_age_days": 252
+  },
+  {
+    "tx_id": "tx_00186",
+    "timestamp": "2026-04-19T06:12:00Z",
+    "user_id": "U004",
+    "counterparty_id": "C1200",
+    "asset_id": "other_asset",
+    "amount_usd": 70165.51,
+    "type": "sale",
+    "counterparty_account_age_days": 241
+  },
+  {
+    "tx_id": "tx_00187",
+    "timestamp": "2026-04-20T07:12:00Z",
+    "user_id": "U016",
+    "counterparty_id": "C8216",
+    "asset_id": "other_asset",
+    "amount_usd": 42862.59,
+    "type": "transfer",
+    "counterparty_account_age_days": 27
+  },
+  {
+    "tx_id": "tx_00188",
+    "timestamp": "2026-04-21T08:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C8827",
+    "asset_id": "other_asset",
+    "amount_usd": 16348.2,
+    "type": "transfer",
+    "counterparty_account_age_days": 34
+  },
+  {
+    "tx_id": "tx_00189",
+    "timestamp": "2026-04-22T00:12:00Z",
+    "user_id": "U013",
+    "counterparty_id": "C9056",
+    "asset_id": "other_asset",
+    "amount_usd": 11667.61,
+    "type": "sale",
+    "counterparty_account_age_days": 323
+  },
+  {
+    "tx_id": "tx_00190",
+    "timestamp": "2026-04-23T01:12:00Z",
+    "user_id": "U002",
+    "counterparty_id": "C3485",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 20456.12,
+    "type": "transfer",
+    "counterparty_account_age_days": 289
+  },
+  {
+    "tx_id": "tx_00191",
+    "timestamp": "2026-04-24T02:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C2395",
+    "asset_id": "other_asset",
+    "amount_usd": 119288.42,
+    "type": "transfer",
+    "counterparty_account_age_days": 61
+  },
+  {
+    "tx_id": "tx_00192",
+    "timestamp": "2026-04-25T03:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C7818",
+    "asset_id": "other_asset",
+    "amount_usd": 73939.17,
+    "type": "sale",
+    "counterparty_account_age_days": 317
+  },
+  {
+    "tx_id": "tx_00193",
+    "timestamp": "2026-04-26T04:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C9561",
+    "asset_id": "other_asset",
+    "amount_usd": 47504.23,
+    "type": "transfer",
+    "counterparty_account_age_days": 227
+  },
+  {
+    "tx_id": "tx_00194",
+    "timestamp": "2026-04-27T05:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C8025",
+    "asset_id": "other_asset",
+    "amount_usd": 38729.49,
+    "type": "transfer",
+    "counterparty_account_age_days": 318
+  },
+  {
+    "tx_id": "tx_00195",
+    "timestamp": "2026-04-28T06:12:00Z",
+    "user_id": "U002",
+    "counterparty_id": "C2625",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 113868.05,
+    "type": "sale",
+    "counterparty_account_age_days": 107
+  },
+  {
+    "tx_id": "tx_00196",
+    "timestamp": "2026-04-01T07:12:00Z",
+    "user_id": "U007",
+    "counterparty_id": "C5335",
+    "asset_id": "other_asset",
+    "amount_usd": 80270.09,
+    "type": "transfer",
+    "counterparty_account_age_days": 81
+  },
+  {
+    "tx_id": "tx_00197",
+    "timestamp": "2026-04-02T08:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C3847",
+    "asset_id": "other_asset",
+    "amount_usd": 67583.09,
+    "type": "transfer",
+    "counterparty_account_age_days": 81
+  },
+  {
+    "tx_id": "tx_00198",
+    "timestamp": "2026-04-03T00:12:00Z",
+    "user_id": "U001",
+    "counterparty_id": "C7693",
+    "asset_id": "other_asset",
+    "amount_usd": 55708.93,
+    "type": "sale",
+    "counterparty_account_age_days": 305
+  },
+  {
+    "tx_id": "tx_00199",
+    "timestamp": "2026-04-04T01:12:00Z",
+    "user_id": "U016",
+    "counterparty_id": "C5771",
+    "asset_id": "other_asset",
+    "amount_usd": 6818.86,
+    "type": "transfer",
+    "counterparty_account_age_days": 148
+  },
+  {
+    "tx_id": "tx_00200",
+    "timestamp": "2026-04-05T02:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C8438",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 11328.03,
+    "type": "transfer",
+    "counterparty_account_age_days": 120
+  },
+  {
+    "tx_id": "tx_00201",
+    "timestamp": "2026-04-06T03:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C4241",
+    "asset_id": "other_asset",
+    "amount_usd": 52741.26,
+    "type": "sale",
+    "counterparty_account_age_days": 279
+  },
+  {
+    "tx_id": "tx_00202",
+    "timestamp": "2026-04-07T04:12:00Z",
+    "user_id": "U008",
+    "counterparty_id": "C3441",
+    "asset_id": "other_asset",
+    "amount_usd": 109284.14,
+    "type": "transfer",
+    "counterparty_account_age_days": 73
+  },
+  {
+    "tx_id": "tx_00203",
+    "timestamp": "2026-04-08T05:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C1977",
+    "asset_id": "other_asset",
+    "amount_usd": 22412.97,
+    "type": "transfer",
+    "counterparty_account_age_days": 158
+  },
+  {
+    "tx_id": "tx_00204",
+    "timestamp": "2026-04-09T06:12:00Z",
+    "user_id": "U020",
+    "counterparty_id": "C5728",
+    "asset_id": "other_asset",
+    "amount_usd": 54380.95,
+    "type": "sale",
+    "counterparty_account_age_days": 240
+  },
+  {
+    "tx_id": "tx_00205",
+    "timestamp": "2026-04-10T07:12:00Z",
+    "user_id": "U010",
+    "counterparty_id": "C7594",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 113293.12,
+    "type": "transfer",
+    "counterparty_account_age_days": 257
+  },
+  {
+    "tx_id": "tx_00206",
+    "timestamp": "2026-04-11T08:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C9090",
+    "asset_id": "other_asset",
+    "amount_usd": 54217.79,
+    "type": "transfer",
+    "counterparty_account_age_days": 307
+  },
+  {
+    "tx_id": "tx_00207",
+    "timestamp": "2026-04-12T00:12:00Z",
+    "user_id": "U002",
+    "counterparty_id": "C8078",
+    "asset_id": "other_asset",
+    "amount_usd": 88940.47,
+    "type": "sale",
+    "counterparty_account_age_days": 310
+  },
+  {
+    "tx_id": "tx_00208",
+    "timestamp": "2026-04-13T01:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C1423",
+    "asset_id": "other_asset",
+    "amount_usd": 13685.25,
+    "type": "transfer",
+    "counterparty_account_age_days": 346
+  },
+  {
+    "tx_id": "tx_00209",
+    "timestamp": "2026-04-14T02:12:00Z",
+    "user_id": "U019",
+    "counterparty_id": "C1339",
+    "asset_id": "other_asset",
+    "amount_usd": 119949.97,
+    "type": "transfer",
+    "counterparty_account_age_days": 345
+  },
+  {
+    "tx_id": "tx_00210",
+    "timestamp": "2026-04-15T03:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C1659",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 92283.75,
+    "type": "sale",
+    "counterparty_account_age_days": 90
+  },
+  {
+    "tx_id": "tx_00211",
+    "timestamp": "2026-04-16T04:12:00Z",
+    "user_id": "U016",
+    "counterparty_id": "C9502",
+    "asset_id": "other_asset",
+    "amount_usd": 79226.61,
+    "type": "transfer",
+    "counterparty_account_age_days": 143
+  },
+  {
+    "tx_id": "tx_00212",
+    "timestamp": "2026-04-17T05:12:00Z",
+    "user_id": "U006",
+    "counterparty_id": "C8141",
+    "asset_id": "other_asset",
+    "amount_usd": 77269.81,
+    "type": "transfer",
+    "counterparty_account_age_days": 252
+  },
+  {
+    "tx_id": "tx_00213",
+    "timestamp": "2026-04-18T06:12:00Z",
+    "user_id": "U003",
+    "counterparty_id": "C8700",
+    "asset_id": "other_asset",
+    "amount_usd": 43711.44,
+    "type": "sale",
+    "counterparty_account_age_days": 171
+  },
+  {
+    "tx_id": "tx_00214",
+    "timestamp": "2026-04-19T07:12:00Z",
+    "user_id": "U011",
+    "counterparty_id": "C2713",
+    "asset_id": "other_asset",
+    "amount_usd": 103354.77,
+    "type": "transfer",
+    "counterparty_account_age_days": 169
+  },
+  {
+    "tx_id": "tx_00215",
+    "timestamp": "2026-04-20T08:12:00Z",
+    "user_id": "U014",
+    "counterparty_id": "C9117",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 36721.48,
+    "type": "transfer",
+    "counterparty_account_age_days": 206
+  },
+  {
+    "tx_id": "tx_00216",
+    "timestamp": "2026-04-21T00:12:00Z",
+    "user_id": "U018",
+    "counterparty_id": "C1601",
+    "asset_id": "other_asset",
+    "amount_usd": 56214.63,
+    "type": "sale",
+    "counterparty_account_age_days": 162
+  },
+  {
+    "tx_id": "tx_00217",
+    "timestamp": "2026-04-22T01:12:00Z",
+    "user_id": "U009",
+    "counterparty_id": "C6296",
+    "asset_id": "other_asset",
+    "amount_usd": 16562.83,
+    "type": "transfer",
+    "counterparty_account_age_days": 207
+  },
+  {
+    "tx_id": "tx_00218",
+    "timestamp": "2026-04-23T02:12:00Z",
+    "user_id": "U017",
+    "counterparty_id": "C1018",
+    "asset_id": "other_asset",
+    "amount_usd": 79946.27,
+    "type": "transfer",
+    "counterparty_account_age_days": 278
+  },
+  {
+    "tx_id": "tx_00219",
+    "timestamp": "2026-04-24T03:12:00Z",
+    "user_id": "U015",
+    "counterparty_id": "C7770",
+    "asset_id": "other_asset",
+    "amount_usd": 9341.88,
+    "type": "sale",
+    "counterparty_account_age_days": 266
+  },
+  {
+    "tx_id": "tx_aml_0001",
+    "timestamp": "2026-05-01T09:23:11Z",
+    "user_id": "U002",
+    "counterparty_id": "C9821",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 1000000,
+    "type": "sale",
+    "counterparty_account_age_days": 3
+  },
+  {
+    "tx_id": "tx_aml_0002",
+    "timestamp": "2026-04-28T12:10:05Z",
+    "user_id": "U002",
+    "counterparty_id": "C1122",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 960000,
+    "type": "sale",
+    "counterparty_account_age_days": 2
+  },
+  {
+    "tx_id": "tx_aml_0003",
+    "timestamp": "2026-04-24T14:41:45Z",
+    "user_id": "U002",
+    "counterparty_id": "C4455",
+    "asset_id": "tesla_model_x_2024",
+    "amount_usd": 980000,
+    "type": "sale",
+    "counterparty_account_age_days": 6
+  }
+]

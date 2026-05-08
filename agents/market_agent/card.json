@@ -1,0 +1,16 @@
+{
+    "agent_name": "MarketAgent",
+    "description": "Market pricing intelligence and anomaly assessment",
+    "skills": [
+        {
+            "skill_id": "price_lookup",
+            "name": "Market price query",
+            "description": "Return a reasonable price range for an asset"
+        },
+        {
+            "skill_id": "price_anomaly_check",
+            "name": "Price anomaly detection",
+            "description": "Compute sigma deviation between transaction price and market baseline"
+        }
+    ]
+}

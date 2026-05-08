@@ -1,0 +1,21 @@
+{
+    "agent_name": "TransactionAgent",
+    "description": "Transaction behavior analysis and suspicious pattern detection",
+    "skills": [
+        {
+            "skill_id": "user_history",
+            "name": "User transaction history",
+            "description": "Return a summary of recent transactions for a user"
+        },
+        {
+            "skill_id": "related_party_analysis",
+            "name": "Related-party analysis",
+            "description": "Identify suspicious related accounts and counterparties"
+        },
+        {
+            "skill_id": "structuring_detection",
+            "name": "Structuring detection",
+            "description": "Detect split transactions used to evade thresholds"
+        }
+    ]
+}

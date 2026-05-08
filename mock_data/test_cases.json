@@ -1,0 +1,14 @@
+[
+  {
+    "id": "case_01",
+    "query": "User U002 sold a Tesla Model X for $1,000,000"
+  },
+  {
+    "id": "case_02",
+    "query": "Check whether user U003 may be structuring transfers"
+  },
+  {
+    "id": "case_03",
+    "query": "User U010 sold Rolex Daytona for $70,000"
+  }
+]
