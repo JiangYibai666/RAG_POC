@@ -15,7 +15,7 @@ StreamHandler = Callable[[TaskRequest], AsyncIterator[TaskEvent]]
 
 def _to_sse(event: TaskEvent) -> str:
     payload = event.model_dump(mode="json")
-    return f"data: {json.dumps(payload, ensure_ascii=True)}\\n\\n"
+    return f"data: {json.dumps(payload, ensure_ascii=True)}\n\n"
 
 
 def create_a2a_router(stream_handler: StreamHandler) -> APIRouter:

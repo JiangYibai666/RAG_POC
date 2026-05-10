@@ -33,7 +33,10 @@ def _load_kb() -> list[dict]:
 
 def _load_embeddings(records: list[dict]) -> np.ndarray:
     if EMBEDDINGS_PATH.exists():
-        return np.load(EMBEDDINGS_PATH)
+        cached = np.load(EMBEDDINGS_PATH)
+        if cached.shape[0] == len(records):
+            return cached
+        # Row count mismatch: knowledge base updated but embeddings not rebuilt; regenerate.
 
     vectors = [_simple_embed((r.get("asset_name", "") + " " + r.get("description", ""))) for r in records]
     if not vectors:
