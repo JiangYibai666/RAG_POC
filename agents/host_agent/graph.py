@@ -21,12 +21,17 @@ def _extract_price(text: str) -> float:
     return max(float(m) for m in matches)
 
 
+_ASSET_RE = re.compile(r"\bsold\s+(?:a|an)\s+(.+?)\s+for\b", re.IGNORECASE)
+
+
 def parse_intent(query: str) -> dict:
     user_match = _USER_RE.search(query)
     price = _extract_price(query)
+    asset_match = _ASSET_RE.search(query)
+    asset = asset_match.group(1).strip() if asset_match else "unknown_asset"
     return {
         "user_id": user_match.group(0).upper() if user_match else "U000",
-        "asset": "Tesla Model X" if "tesla" in query.lower() else "unknown_asset",
+        "asset": asset,
         "transaction_amount": price,
         "transaction_type": "sale" if "sold" in query.lower() else "unknown",
         "investigation_goal": "Determine money laundering risk",
@@ -45,7 +50,12 @@ def _extract_data(artifact: Optional[Artifact]) -> dict:
 def _risk_from_evidence(market: dict, tx: dict) -> str:
     sigma = float(market.get("deviation_sigma", 0.0))
     new_accounts = int(tx.get("new_account_counterparties", 0))
-    if sigma >= 5 and new_accounts >= 2:
+    is_structuring = tx.get("structuring", {}).get("verdict") == "HIGH_RISK_STRUCTURING"
+    # Extremely anomalous price (>= 10σ) is CRITICAL on its own — no tx signals needed.
+    if sigma >= 10:
+        return "CRITICAL"
+    # Significant price anomaly combined with any suspicious transaction pattern.
+    if sigma >= 5 and (new_accounts >= 1 or is_structuring):
         return "CRITICAL"
     if sigma >= 3:
         return "HIGH"

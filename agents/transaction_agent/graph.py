@@ -20,16 +20,26 @@ def run_transaction_graph(message: Message) -> Artifact:
     related = find_related_counterparties(user_id)
     structuring = detect_structuring(txs)
 
+    new_account_counterparties = len(
+        [t for t in txs if float(t.get("counterparty_account_age_days", 999)) <= 7]
+    )
+    is_structuring = structuring.get("verdict") == "HIGH_RISK_STRUCTURING"
+
+    if new_account_counterparties > 0 or is_structuring:
+        verdict = "HIGH_RISK"
+    elif len(txs) >= 10:
+        verdict = "MEDIUM_RISK"
+    else:
+        verdict = "LOW_RISK"
+
     payload = {
         "user_id": user_id,
         "recent_transaction_count": len(txs),
         "related_counterparty_count": len({t.get("counterparty_id") for t in txs if t.get("counterparty_id")}),
-        "new_account_counterparties": len(
-            [t for t in txs if float(t.get("counterparty_account_age_days", 999)) <= 7]
-        ),
+        "new_account_counterparties": new_account_counterparties,
         "structuring": structuring,
         "related_sample_size": len(related),
-        "verdict": "HIGH_RISK" if len(txs) >= 3 or structuring.get("verdict") == "HIGH_RISK_STRUCTURING" else "MEDIUM_RISK",
+        "verdict": verdict,
     }
 
     return Artifact(name="transaction_analysis", parts=[DataPart(data=payload)])
