@@ -196,7 +196,7 @@ Each agent **does not know the implementation details of the others**. They exch
 a2a-aml-poc/
 ├── main.py                          # Startup entry: launch 3 agents + CLI concurrently
 ├── pyproject.toml                   # uv/poetry dependency management
-├── .env.example                     # Environment variable template
+├── .env                             # Local environment variables (optional)
 ├── README.md                        # This document
 │
 ├── a2a/                             # A2A protocol layer (can be extracted for reuse)
@@ -243,7 +243,7 @@ a2a-aml-poc/
 │   └── test_cases.json              # Demo test cases
 │
 ├── scripts/
-│   ├── generate_mock_data.py        # Generate mock data with Claude
+│   ├── generate_mock_data.py        # Generate mock data locally
 │   └── build_embeddings.py          # One-time market KB embedding builder
 │
 ├── cli/
@@ -585,40 +585,57 @@ Total time: 8.3s | A2A calls: 3 | Tokens: 12,450
 
 ## 06 Quick Start
 
-### 6.1 Environment Setup
+### 6.1 Create and Activate a Virtual Environment
 
 ```bash
-# 1. Enter the project directory
-cd a2a-aml-poc
+# 1. Enter the project root
+cd RAG_POC
 
-# 2. Install dependencies (uv recommended)
-uv sync
-# or use pip
-pip install -e .
-
-# 3. Configure environment variables
-cp .env.example .env
-# Edit .env and set ANTHROPIC_API_KEY
+# 2. Create and activate a venv with Python 3.11+
+python3.11 -m venv venv
+source venv/bin/activate
 ```
 
-### 6.2 Initialize Data
+### 6.2 Install Dependencies
 
 ```bash
-# 1. Generate mock data (one-time generation with Claude)
-python scripts/generate_mock_data.py
+pip install -r requirements.txt
+```
+
+### 6.3 Configure Environment Variables
+
+Create or edit `.env`:
+
+```env
+# Optional: override default agent endpoints
+HOST_AGENT_URL=http://127.0.0.1:10000
+MARKET_AGENT_URL=http://127.0.0.1:10001
+TRANSACTION_AGENT_URL=http://127.0.0.1:10002
+
+# Optional: customize SQLite file path
+AML_DB_PATH=./aml.db
+```
+
+Note: This project uses SQLite by default, so no Docker/database startup step is required in this repo.
+
+### 6.4 Initialize Data
+
+```bash
+# 1. Generate mock data (local script generation)
+python3 scripts/generate_mock_data.py
 
 # 2. Build market knowledge base embeddings
-python scripts/build_embeddings.py
+python3 scripts/build_embeddings.py
 
 # 3. Initialize SQLite
-python -c "from storage.task_store import init_db; init_db()"
+python3 -c "from storage.task_store import init_db; init_db()"
 ```
 
-### 6.3 Start the System
+### 6.5 Start the System
 
 ```bash
 # One-command startup: launch 3 agents + CLI concurrently
-python main.py
+python3 main.py
 ```
 
 Expected output:
@@ -626,10 +643,11 @@ Expected output:
 ✓ HostAgent listening on http://localhost:10000
 ✓ MarketAgent listening on http://localhost:10001
 ✓ TransactionAgent listening on http://localhost:10002
-✓ All AgentCards loaded
 ✓ SQLite initialized at ./aml.db
 
-Ready. Type your query below (or 'exit' to quit):
+╭──────────────── A2A-AML-POC ────────────────╮
+│ AML Investigation CLI (type 'exit' to quit) │
+╰─────────────────────────────────────────────╯
 > _
 ```
 
