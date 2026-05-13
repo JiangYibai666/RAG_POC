@@ -48,19 +48,29 @@ def _extract_data(artifact: Optional[Artifact]) -> dict:
 
 
 def _risk_from_evidence(market: dict, tx: dict) -> str:
+    # ── 第三层：综合风险裁定（HostAgent）────────────────────────────────────
+    # 汇入 MarketAgent（价格侧）与 TransactionAgent（行为侧）的两路证据，
+    # 通过多条件规则树输出最终 risk_level。
+
+    # 从市场分析结果中取价格偏离 Z-score
     sigma = float(market.get("deviation_sigma", 0.0))
+    # 从交易分析结果中取新开账户对手方数量与是否有结构化拆单
     new_accounts = int(tx.get("new_account_counterparties", 0))
     is_structuring = tx.get("structuring", {}).get("verdict") == "HIGH_RISK_STRUCTURING"
-    # Extremely anomalous price (>= 10σ) is CRITICAL on its own — no tx signals needed.
+
+    # 规则 1：价格极端偏离（>= 10σ）单独触发 CRITICAL，无需行为侧佐证
     if sigma >= 10:
         return "CRITICAL"
-    # Significant price anomaly combined with any suspicious transaction pattern.
+    # 规则 2：价格显著异常（>= 5σ）且叠加任一行为侧风险信号 → CRITICAL
     if sigma >= 5 and (new_accounts >= 1 or is_structuring):
         return "CRITICAL"
+    # 规则 3：价格高度异常（>= 3σ）→ HIGH
     if sigma >= 3:
         return "HIGH"
+    # 规则 4：价格中度异常（>= 2σ）→ MEDIUM
     if sigma >= 2:
         return "MEDIUM"
+    # 规则 5：价格正常，无其他触发条件 → LOW
     return "LOW"
 
 

@@ -17,7 +17,13 @@ def _extract_price(text: str) -> float:
 
 def run_market_graph(message: Message) -> Artifact:
     query_text = " ".join(part.text for part in message.parts if getattr(part, "type", "") == "text")
+    # ── 第一层：价格异常检测（Z-score）────────────────────────────────────────
+
+    # 步骤 1：从用户输入中抽取交易价格（正则匹配最大数字）
     price = _extract_price(query_text)
+
+    # 步骤 2：通过 RAG 检索出最相关的 1~3 条市场记录
+    # lookup_asset_market 先做名称重叠评分，再做余弦相似度，强名称匹配只返回 1 条
     entries = lookup_asset_market(query_text, top_k=3)
 
     if not entries:
@@ -37,10 +43,19 @@ def run_market_graph(message: Message) -> Artifact:
     means = [float(e["historical_mean"]) for e in entries]
     stds = [max(float(e["historical_stddev"]), 1.0) for e in entries]
 
+    # 步骤 3：对检索到的多条记录取均值，得到市场参考均值 μ 和标准差 σ
     mu = mean(means)
     sigma = mean(stds)
+
+    # 步骤 4：计算实际价格偏离 μ 多少个标准差（即 Z-score）
+    # deviation_sigma = |queried_price - μ| / σ
     deviation_sigma = abs(price - mu) / sigma if sigma > 0 else 0.0
 
+    # 根据 Z-score 判定价格异常等级：
+    # >= 5σ → 极端异常（EXTREMELY_ANOMALOUS）
+    # >= 3σ → 高度异常（HIGHLY_ANOMALOUS）
+    # >= 2σ → 中度异常（MODERATELY_ANOMALOUS）
+    # <  2σ → 正常区间（WITHIN_NORMAL_RANGE）
     if deviation_sigma >= 5:
         verdict = "EXTREMELY_ANOMALOUS"
     elif deviation_sigma >= 3:
